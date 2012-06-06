@@ -1,0 +1,35 @@
+﻿@using ArtSite
+@using ArtSite.DataAccess
+@using ArtSite.Models
+@model ArtSite.Models.LogOnModel
+@{
+    Layout = "~/Views/Shared/_Layout_wide.cshtml";
+      }
+
+@{ var BlogPostDal = new BlogPostDal(new ArtGalleryDBContext());
+    var blogs = BlogPostDal.Enitities.Where(x => x.UserId == Model.UserId).OrderByDescending(y=>y.PublishDate).Take(5);
+
+    var userAuthenticated = (Permissions.HasPermission(Model.UserName) || Permissions.IsAdmin());       
+    if(userAuthenticated)
+    {
+        @Html.ActionLink("Create New", "CreateUserBlog", "Blog")
+    } }
+
+<div>
+    
+    @{
+        foreach (var mobilePost in blogs)
+        {
+            <div>
+                <h2>@mobilePost.Title</h2>
+                <div>
+                    @mobilePost.Content
+                </div>
+            </div>
+               if (userAuthenticated)
+               {                  
+                    @Html.ActionLink("Edit", "Edit", "Blog", new { blogId = mobilePost.ID, returnUrl = Request.Url.AbsoluteUri }, new { style = "display:block; padding-bottom:5px" })
+                }
+        }
+    }
+</div>

@@ -1,0 +1,44 @@
+﻿
+
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "../Shared/_Layout_wide.cshtml";
+}
+    <script src="../../Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+     <link href="../../Content/Tooltip.css" rel="stylesheet" type="text/css" />
+
+@*
+<p>@Html.ActionLink("Try out Galleria", "Galleria") or @Html.ActionLink("Try out Gallerific", "Gallerific")</p>
+
+ *@
+Search by Title, Artist, Theme or Media (leave blank to return all pictures)    
+
+<a href="#" class="tt">[?]
+    <span class="tooltip">
+        <span class="top"></span>
+        <span class="middle">You can use 'anon' for anonymous.<br> Or 'untitled' for untitled</span>
+        <span class="bottom"></span>
+    </span>
+</a>     
+@using (Ajax.BeginForm("Searching", "Gallery", new AjaxOptions { LoadingElementId = "spinner", UpdateTargetId = "pictureDiv" }))
+{   
+    
+    <br />
+    
+    @*
+    <label>Items per page</label>
+    
+    <input style="width: 20px" type="text" name="items" value="@ViewBag.ItemsPerPage" />      *@
+    
+    <label>Search</label>
+    <input type="text" name="name"  />       
+    <input type="submit" value="Search" />
+   
+}
+
+
+
+<img id="spinner" src="../../images/loading.gif" style="display: none;">
+
+ <div id="pictureDiv" style="min-width: 500px;"></div>
+

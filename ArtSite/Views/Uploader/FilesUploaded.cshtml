@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Files Uploaded";
+}
+
+@model List<string>
+
+
+<h2>@string.Format("'{0}' files uploaded", Model!=null ? Model.Count.ToString() : "0")</h2>
+
+
+<ul>     
+   @foreach (string file in @Model)
+   { 
+      <li>@file</li> 
+   } 
+</ul>

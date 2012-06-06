@@ -1,0 +1,60 @@
+﻿@using System.Threading
+@using ArtSite
+@using ArtSite.Models
+@using ArtSite.Models.Views
+@model  IEnumerable<LandingPageItemViewModel> 
+@{    
+    Layout = "~/Views/Shared/_Layout_wide.cshtml";
+}
+
+    <link href="../../Content/masonryStyle.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/Masonry/modernizr-transitions.js" type="text/javascript"></script>
+    <script src="../../Scripts/Masonry/jquery-1.6.2.min.js"></script>
+    <script src="../../Scripts/Masonry/jquery.masonry.min.js"></script>
+  
+    <script>
+         $(function() {
+
+             var $container = $('#container');
+
+             $container.imagesLoaded(function() {
+                 $container.masonry({
+                         itemSelector: '.box',
+                         columnWidth: 20,
+                         isAnimated: !Modernizr.csstransitions
+                     });
+             });
+         });
+    </script>
+    @{        
+        var userAuthenticated = (Permissions.IsAdmin());     
+    }
+  <!-- scripts at bottom of page -->
+    <div id="container" class="transitions-enabled clearfix">
+    @{if (Model != null)
+      {
+          foreach (var item in Model)
+          {
+              var pathSmallImage = "/MyFiles/" + @item.Picture.ID + "_s.jpg";
+              var artisthome = "../Gallery/ArtistGallery?userId=" + @item.Picture.UserId; 
+              
+                <div class="box">
+               
+                    @{ if ( userAuthenticated)
+                       {                           
+                            @Html.ActionLink("Edit", "LandingPagePictureChooser", "Gallery", new {landPageItemId = @item.LandingPageItemId, returnUrl = Request.Url.AbsoluteUri}, new{style="display:block; padding-bottom:5px"})                           
+                       }
+                       
+                     }
+                     
+                    <a href="@artisthome" ><img alt="pic" src="@pathSmallImage" title="" onError="this.src='../../images/error.jpg'" 
+                            /></a>
+                        
+                </div>
+                
+          }
+                   
+      }   
+               
+    } 
+       </div>

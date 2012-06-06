@@ -1,0 +1,38 @@
+﻿@using ArtSite.Models
+
+@{
+    ViewBag.Title = "_MainMenu";
+    var users = UserDal.AllUsers.Where(x => x.Active.HasValue && x.Active.Value);
+}
+
+ <span> 
+    <ul  style=" color: black" id="nav" class="dropdown dropdown-horizontal">
+	    <li>@Html.ActionLink("Home", "Index", "Home")</li>	
+	    <li><span class="dir">Artists</span>
+		    <ul>
+                @{ foreach (var item in users)
+                    {
+                        string artistName = item.DisplayNameText;
+                        <li>@Html.ActionLink(artistName, "ArtistGallery", "Gallery", new { userId = item.UserId}, null)  </li>
+                    }   
+                }
+			  
+		    </ul>
+	    </li>
+        <li>@Html.ActionLink("Gallery", "Index", "Gallery")</li>
+	    <li><span class="dir">Member</span>
+        <ul>
+	        <li>@Html.ActionLink("Account", "Index", "AccountView")</li>	     
+            <li>@Html.ActionLink("Editor", "Index", "PictureEditor")</li>
+            <li>@Html.ActionLink("Upload", "Index", "Uploader")</li>              
+            <li>@Html.ActionLink("User Blog", "CreateUserBlog", "Blog")</li>  
+            <li>@Html.ActionLink("Edit news", "Edit", "News")</li>  
+            <li>@Html.ActionLink("Change password", "ChangePassword", "Account")</li>  
+            	                            
+        </ul>
+        @*<li>@Html.ActionLink("Blog", "Index", "Blog")</li>*@
+        <li>@Html.ActionLink("News", "Index", "News")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+	    
+    </ul>
+</span>

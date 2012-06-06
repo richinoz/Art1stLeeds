@@ -1,0 +1,195 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistHome.cshtml" caret="449" fromTop="11" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:News/f:Index.cshtml" caret="108" fromTop="7" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Account/f:ForgottenPassword.cshtml" caret="595" fromTop="10" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:NewsController.cs" caret="818" fromTop="20" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="2492" fromTop="7" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="384" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_Layout.cshtml" caret="467" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:DataAccess/f:ArtGalleryDBContext.cs" caret="1139" fromTop="19" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Web.config" caret="331" fromTop="9" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:UploaderController.cs" caret="3114" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_ArtistHome.cshtml" caret="1189" fromTop="13" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_MainMenu.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="1158" fromTop="9" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:LandingPage.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/f:PictureNoBufferDAta.cs" caret="494" fromTop="11" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:PictureEditor/f:Edit.cshtml" caret="3388" fromTop="19" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:GalleriaForArtist.cshtml" caret="1897" fromTop="20" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery.cshtml" caret="1268" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/f:Picture.cs" caret="975" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:HomeController.cs" caret="434" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Permissions.cs" caret="2281" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureCache.cs" caret="2666" fromTop="13" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Edit.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:PictureEditor/f:Index.cshtml" caret="1016" fromTop="25" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:PictureEditor/f:Searching.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="11651" fromTop="25" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:GalleryController.cs" caret="2822" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:Searching.cshtml" caret="529" fromTop="12" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:Index.cshtml" caret="272" fromTop="3" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_Layout_wide.cshtml" caret="1130" fromTop="24" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Edit.cshtml" caret="338" fromTop="3" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Permissions.cs" caret="2509" fromTop="20" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="10326" fromTop="11" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/f:PictureNoBufferDAta.cs" caret="716" fromTop="11" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/f:Picture.cs" caret="526" fromTop="7" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="7281" fromTop="22" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/f:PictureNoBufferDAta.cs" caret="556" fromTop="23" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:PictureEditor/f:Edit.cshtml" caret="3639" fromTop="27" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:PictureEditor/f:Edit.cshtml" caret="3615" fromTop="23" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="12137" fromTop="29" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="11485" fromTop="17" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="9020" fromTop="29" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="8987" fromTop="17" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/f:PictureNoBufferDAta.cs" caret="689" fromTop="20" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="4660" fromTop="22" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="8635" fromTop="24" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="7905" fromTop="27" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="7781" fromTop="23" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="7219" fromTop="11" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="9568" fromTop="27" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="11987" fromTop="22" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="12085" fromTop="27" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/f:Picture.cs" caret="975" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="1356" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_ArtistHome.cshtml" caret="1016" fromTop="12" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_Layout_wide.cshtml" caret="271" fromTop="8" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_Layout_wide.cshtml" caret="469" fromTop="13" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:Index.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:Index.cshtml" caret="625" fromTop="18" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:Index.cshtml" caret="97" fromTop="6" />
+    </RecentEdits>
+  </RecentFiles>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="if" priority="159" />
+      <Item value="user" priority="63" />
+      <Item value="Logger`0" priority="31" />
+      <Item value="Membership`0" priority="63" />
+      <Item value="file" priority="31" />
+      <Item value="else" priority="63" />
+      <Item value="File`0" priority="149" />
+      <Item value="System" priority="31" />
+      <Item value="IO" priority="26" />
+      <Item value="fullPath" priority="31" />
+      <Item value="pathSmallImage" priority="31" />
+      <Item value="Account" priority="32" />
+      <Item value="ChangePassword" priority="27" />
+      <Item value="currentUser" priority="95" />
+      <Item value="password" priority="31" />
+      <Item value="var" priority="63" />
+      <Item value="Edit" priority="27" />
+      <Item value="Password" priority="32" />
+      <Item value="ArtistGallery" priority="60" />
+      <Item value="item" priority="31" />
+      <Item value="model" priority="29" />
+      <Item value="Model" priority="59" />
+      <Item value="ret" priority="63" />
+      <Item value="null" priority="31" />
+      <Item value="return" priority="63" />
+      <Item value="public" priority="95" />
+      <Item value="int" priority="31" />
+      <Item value="DisplayOrder" priority="162" />
+      <Item value="pictureItemNoBufferData" priority="31" />
+      <Item value="c" priority="97" />
+      <Item value="PictureItemNoBufferData`0" priority="95" />
+      <Item value="PictureItem`0" priority="63" />
+      <Item value="pictureItem" priority="32" />
+      <Item value="picture" priority="96" />
+      <Item value="static" priority="31" />
+      <Item value="new" priority="31" />
+      <Item value="PictureItemNoBufferData" priority="28" />
+      <Item value="p" priority="32" />
+      <Item value="orderby" priority="31" />
+      <Item value="x" priority="31" />
+      <Item value="Display" priority="31" />
+      <Item value="Description" priority="31" />
+      <Item value="Name" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ArtSite.Logger">
+      <Item value="Error`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Security.Membership">
+      <Item value="UpdateUser`0" priority="53" />
+      <Item value="GetUserNameByEmail`0" priority="22" />
+      <Item value="GetUser`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="Exists`0" priority="53" />
+      <Item value="Delete`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.HtmlHelper`1">
+      <Item value="TextAreaFor`2" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ArtSite.Models.LogOnModel">
+      <Item value="UserName" priority="55" />
+      <Item value="Email" priority="108" />
+      <Item value="Active" priority="26" />
+      <Item value="DisplayName" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Security.MembershipUser">
+      <Item value="UserName" priority="26" />
+      <Item value="Email" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IQueryable`1">
+      <Item value="Take`1" priority="22" />
+      <Item value="OrderBy`2" priority="82" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IOrderedQueryable`1">
+      <Item value="Take`1" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="HtmlCodeCompletionContext">
+      <Item value="div" priority="12" />
+      <Item value="style" priority="17" />
+      <Item value="drop-initial-size" priority="6" />
+      <Item value="display" priority="4" />
+      <Item value="inline-block" priority="8" />
+      <Item value="margin" priority="13" />
+    </ItemStatistics>
+    <ItemStatistics item="CssCodeCompletionContext">
+      <Item value="drop-initial-size" priority="0" />
+      <Item value="display" priority="0" />
+      <Item value="inline-block" priority="1" />
+      <Item value="margin" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Nullable`1">
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="RazorTransitionCompletionContext">
+      <Item value="model" priority="9" />
+      <Item value="Model" priority="17" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ArtSite.Models.PictureItemNoBufferData">
+      <Item value="DisplayOrder" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ArtSite.Models.PictureItem">
+      <Item value="DisplayOrder" priority="219" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ArtSite.Models.PictureItemNoBufferData">
+      <Item value="GetPictureItemNoBufferData`0" priority="26" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>

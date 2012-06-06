@@ -1,0 +1,110 @@
+﻿@using ArtSite
+@using ArtSite.Models
+@model List<ArtSite.Models.PictureItem>
+
+@{
+    ViewBag.Title = "Searching";
+}
+    
+    <script type="text/javascript" language="javascript">
+        function RetrievePicture(imgCtrl, fileInfo) {
+            imgCtrl.onload = null;
+            var rand = parseInt(777 * Math.random(0, 1));
+            imgCtrl.src = '../ShowImageFromDb.ashx?id=' + fileInfo + '&r=' + rand;
+        }
+    </script>
+
+@{if (Model != null)
+  {
+    <table>
+        <tr>
+            <th>
+                
+            </th>       
+            <th>
+                
+            </th>
+
+            <th>
+                Title
+            </th>       
+            <th>
+                Price
+            </th>
+            <th>
+                Artist
+            </th>
+            <th>
+                Media
+            </th>
+            <th>
+                Theme
+            </th>
+            <th>
+                Size
+            </th>
+            <th></th>
+        </tr>
+
+        @{
+     
+      var userIsAdmin = false;
+      if (User.Identity.IsAuthenticated)
+      {
+          if (Permissions.HasPermission(User.Identity.Name))
+          {
+              userIsAdmin = true;
+          }
+      }
+      foreach (var item in Model)
+      {
+          bool userAuthenticated = (item.Artist == User.Identity.Name) || userIsAdmin;   
+               
+                <tr>
+                    <td>
+                        <ul> @{
+                               if (userAuthenticated)
+                               {                   
+                                    <li>@Html.ActionLink("Edit", "Edit", new { id = item.ID, searchString = ViewBag.SearchString }) </li>
+                                    <li>@Html.ActionLink("Details", "Details", new { id = item.ID }) </li>      
+                                    <li>@Html.ActionLink("Delete", "Delete", new { id = item.ID })</li>            
+                            
+                               }else
+                               {    
+                                    <li> @Html.Label("Edit") </li>
+                                    <li>@Html.ActionLink("Details", "Details", new { id = item.ID }) </li>      
+                                    <li>@Html.Label("Delete")   </li>                             
+                               } 
+                             }
+                        </ul>
+                    </td>
+                    <td>        
+                        <a><img alt="pic" src="../../Images/classic-loader.gif" title="@item.Title" onError="this.src='../../images/error.jpg'" 
+                                onload="RetrievePicture(this,'@item.ID');" /></a>
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+       
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Artist)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Media)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Theme)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Size)
+                    </td>
+                
+                </tr>
+      }
+  }
+
+    </table> }}

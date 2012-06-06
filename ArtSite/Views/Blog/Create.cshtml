@@ -1,0 +1,89 @@
+﻿@model MobileBlog.Models.MobilePost
+ 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+    <script src="../../Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function resetTextFields() {
+            $("#Title").val("");
+            $("#Content").val("");
+        }
+
+        function onSuccess(data, status) {
+               
+            // Notify the user the new post was saved
+            $("#notification").fadeIn(2000);
+
+            data = $.trim(data);
+         
+            if (data == "SUCCESS") {
+                $("#notification").css("background-color", "#ffff00");
+                $("#notification").text("The post was saved");
+                var url = 'http://' + document.location.host + '/Blog';
+              
+                window.location = url;
+            }
+            else {
+                $("#notification").css("background-color", "#ff0000");
+                $("#notification").text(data);
+            }
+            $("#notification").fadeOut(5000);
+        }
+
+    </script>
+
+    <style>
+        .label
+        {
+            min-width: 100px;
+            display: -moz-inline-box;           
+            display: inline-block;
+            text-align: left;
+
+        }
+        .field
+        {
+            margin: 0.5em 0 0 0;   
+           display: inline;
+          
+        }
+        
+        #Content
+        {
+            width:80%;
+        }
+    </style>
+ 
+@using (Html.BeginForm("SavePost", "Blog"))
+{
+    <div>
+        @Html.HiddenFor(x => x.UserId, Model.UserId)
+        @Html.HiddenFor(x=>x.ID)
+        @Html.HiddenFor(x=>x.PublishDate)
+        <form id="newPostForm" action="">
+            <div>
+                <div  class="label">
+                    @Html.LabelFor(model => model.Title, "Post Title")
+                </div>
+                <div  class="field">
+                    @Html.EditorFor(model => model.Title)   
+                </div>
+                <p></p>
+                <div  class="label">
+                    @Html.LabelFor(model => model.Content, "Post Content")
+                </div>
+                <div  class="field">
+                    @Html.TextAreaFor(model => model.Content, new { style = "width: 600px" })
+                </div>
+                <div style="margin-top: 2em;">
+                    <div style="float: right;">@Html.ActionLink("Cancel", "Index", null, new { @data_role = "button" })</div>
+                    <div ><button id="submit" type="submit">Submit</button></div>
+                </div>
+               
+            </div>
+        </form>
+    </div>
+     
+}<div id="notification" style="color: yellow"></div>

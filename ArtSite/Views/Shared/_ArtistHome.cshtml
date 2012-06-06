@@ -1,0 +1,47 @@
+﻿@using ArtSite.Models
+
+@{
+    string artistColour = ViewBag.Model != null ? ViewBag.Model.Colour ?? "#5C87B2" : "#5C87B2";
+}
+
+@{
+    ViewBag.Title = "_MainMenu";
+    var users = UserDal.AllUsers.Where(x => x.Active.HasValue && x.Active.Value);
+}
+<style>
+    .borderOuter
+    {
+        background-color:@artistColour;
+        background-image:none;
+    }
+    
+    .borderOuterHome
+    {
+        background-color:@artistColour;
+        background-image:none;
+    }
+</style>
+
+ <span> 
+    <ul  style="color: black" id="nav" class="dropdown dropdown-horizontal">
+	       
+        	                        
+        @{
+            long artistId = ViewBag.Model != null ? ViewBag.Model.UserId : ViewBag.ArtistId;
+            
+            <li>@Html.ActionLink("Gallery", "ArtistGallery", "Gallery", new {userId = artistId}, null)  </li>
+            <li>@Html.ActionLink("Slideshow", "Galleria", "Gallery", new { artistId= artistId }, null)  </li>
+            <li>@Html.ActionLink("Background", "ArtistHome", "Gallery", new { userId = artistId }, null)</li>
+            <li>@Html.ActionLink("Contact", "SendEmail", "Email", new { artistId = artistId }, null) </li>
+            <li><span class="dir">Artists</span>
+                <ul>
+                    @{ foreach (var item in users)
+                       {
+                           <li>@Html.ActionLink(item.DisplayNameText, "ArtistGallery", "Gallery", new { userId = item.UserId }, null)  </li>
+                       } }
+			  
+                </ul>
+            </li>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li> }
+    </ul>
+</span>

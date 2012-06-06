@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ArtSite.Models.LogOnModel>
+
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_Layout_Wide.cshtml";
+}
+
+
+@Html.ValidationSummary(true, "Permissions. Please correct the errors and try again.")
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table style="margin: auto;">
+    <tr>
+        <th>
+            User
+        </th>
+       
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+       
+   
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,116 @@
+﻿
+@model ArtSite.Models.Views.EditPictureViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+    <script type="text/javascript" language="javascript">
+        function RetrievePicture(imgCtrl, fileInfo) {
+            imgCtrl.onload = null;
+            imgCtrl.src = '../../ShowImageFromDb.ashx?id=' + fileInfo;
+        }
+    </script>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+       
+        <div>
+             <a><img style="float:left; margin: 10px 10px 5px 55px;" alt="pic" src="../../Images/cursor.jpg" title="@Model.Picture.Title" onError="this.src='../../images/error.jpg'" 
+                                                                 onload="RetrievePicture(this,'@Model.Picture.ID');" /></a>
+        </div>
+        @Html.HiddenFor(model => model.Picture.ID)
+        
+        <br />
+
+        <div style="width: 550px; float:left;">
+            <div class="picture-editor-label">
+                @Html.LabelFor(model => model.Picture.Title)
+            
+            </div>
+            <div class="picture-editor-field">
+                @Html.EditorFor(model => model.Picture.Title)
+                @Html.ValidationMessageFor(model => model.Picture.Title)
+            </div>
+        
+            <div class="picture-editor-label">
+                @Html.LabelFor(model => model.Picture.Price)
+
+            </div>
+            <div class="picture-editor-field">
+                @Html.EditorFor(model => model.Picture.Price)
+                @Html.ValidationMessageFor(model => model.Picture.Price)
+            </div>
+
+            <br/><p></p>    
+          
+            <div class="picture-editor-label">
+                @Html.LabelFor(model => model.Picture.Artist)
+            </div>
+            <div class="picture-editor-field">
+                @Html.EditorFor(model => model.Picture.Artist)
+                @Html.ValidationMessageFor(model => model.Picture.Artist)
+            </div>        
+    
+             <div class="picture-editor-label">
+                @Html.LabelFor(model => model.Picture.Size)
+            </div>
+            <div class="picture-editor-field">
+                @Html.EditorFor(model => model.Picture.Size)
+                @Html.ValidationMessageFor(model => model.Picture.Size)
+            </div>     
+            <br/><p></p>
+            <div class="picture-editor-label">
+                @Html.LabelFor(model => model.Picture.Media)
+            </div>
+            <div class="picture-editor-field">
+                @Html.EditorFor(model => model.Picture.Media)
+                @Html.ValidationMessageFor(model => model.Picture.Media)
+            </div>    
+       
+            <div class="picture-editor-label">
+                @Html.LabelFor(model => model.Picture.Theme)
+            </div>
+            <div class="picture-editor-field">
+                @Html.EditorFor(model => model.Picture.Theme)
+                @Html.ValidationMessageFor(model => model.Picture.Theme)
+            </div>    
+            
+            <div class="picture-editor-label">
+                @Html.LabelFor(model => model.Picture.DisplayOrder)
+            </div>
+            <div class="picture-editor-field">
+                @Html.EditorFor(model => model.Picture.DisplayOrder)
+                @Html.ValidationMessageFor(model => model.Picture.DisplayOrder)
+            </div>    
+            
+            
+            <p>
+                <input style="float: left; clear:left; margin-top:10px" type="submit" value="Save"/>
+            </p>
+        </div>
+    </fieldset>
+}
+
+<div>
+@{
+       
+    if(Model.ReturnUrl!=null)
+    {
+        <a href="@Model.ReturnUrl">Back to List</a>        
+    }
+    else
+    {
+        @Html.ActionLink("Back to List", "Searching")
+    }
+    @Html.ActionLink("Delete","Delete", new{id = Model.Picture.ID, returnUrl = Model.ReturnUrl})
+    
+}
+    
+</div>

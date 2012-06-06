@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MobileBlog.Models.MobilePost>
+ 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<ul data-role="listview">
+    <li>
+        @Html.ActionLink("Create New Post", "Create")
+        <button style="margin: 0px;" data-theme="b" data-role="button" data-iconpos="left" id="refresh" type="button" data-icon="refresh">Refresh</button>
+    </li>
+
+</ul>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#refresh").click(function () {
+            location.reload();
+        });
+    });
+ 
+</script>
+
+
+<div class="paddedDiv">
+    <div class="blogClass">
+        
+         @foreach (var post in Model) {
+            
+            <p style="margin:10px 5px; font-size: 20px; color:Purple; text-align:center" ><b> @post.Title</b></p>
+                var content = @post.Content.Replace(Environment.NewLine, "</br>");
+                
+                <p style="margin: 10px 35px; " >@Html.Raw(@content)</p>
+                
+                <p  style="text-align: right; margin-right:10px;"><strong>@post.PublishDate</strong></p>
+                 <p ><img style="margin-left: auto; margin-right: auto; display: block;" src="../../images/separator.jpg" /></p>
+         
+         }
+    
+    </div>
+</div>

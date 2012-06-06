@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>	
+
+<html>
+
+<style>
+
+body {
+	margin:50px 0px; padding:0px;
+	text-align:center;
+	}
+
+	
+.borderOuter
+{
+	width:800px;
+	height:800px;
+	margin:0px auto;
+	background-image: url(blue_gradient.gif);
+	background-repeat: repeat; 
+	border-style:solid;
+	border-width:1px;
+	border-color:grey;
+}
+
+p {
+	padding: 20px 20px 20px 20px;
+	
+}
+
+.borderInner
+{
+	background-color:white;
+	margin: 0px  auto;
+	position: relative;
+	border-style:solid;
+	border-width:1px;
+	border-color:grey;
+	top: 20px;
+	width:760px;
+	height:760px;
+}
+
+.main
+{
+	background-color:white;
+	margin: 20px 20px auto;
+	
+	border-style:solid;
+	border-width:1px;
+	border-color:blue;
+	
+	width:720px;
+	height:700px;
+	padding: 20px 0px 0px 0px 
+}
+
+.box
+{
+	font-style:oblique;
+	font-size:16;
+	margin: 15px 15px auto ;	
+	width:650px;
+	height:100px;
+	background-color:navy;
+	box-shadow: 10px 10px 5px #888888;
+	color:yellow;
+}
+
+
+#container {
+	width:720px;
+	
+}
+#subHeader {
+	float:left;
+	width:325px;
+	margin-left:25px;
+	border-style:dashed;
+	border-width:1px;
+	border-color:grey;
+	text-align:left;
+}
+#sidebar {
+	float:left;
+	width:325px;
+	margin-left:20px;
+	border-style:dashed;
+	border-width:1px;
+	border-color:grey;
+	text-align:right;
+}
+#footer {
+	clear:both;
+}
+
+</style>
+	
+	<div class="borderOuter">
+		<div class="borderInner">
+			<div class="main">
+			
+			
+				<div id="container">
+					
+					<div id="subHeader">
+						some content here
+					</div>
+					<div id="sidebar">
+						spring 2012
+					</div>
+					
+				</div>
+				<div id="footer">
+					
+				</div>		
+				
+				<p class = "box"> paragraph has a box background.
+				</p>
+					
+					content here	
+							
+			</div>
+			
+		</div>
+		
+	</div>
+</html>

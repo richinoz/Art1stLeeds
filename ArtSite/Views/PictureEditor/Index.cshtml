@@ -1,0 +1,36 @@
+﻿@model List<ArtSite.Models.PictureItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+    
+    <script src="../../Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../lightbox2.05/js/prototype.js"></script>
+    <script type="text/javascript" src="../../lightbox2.05/js/scriptaculous.js"></script>
+    <script type="text/javascript" src="../../lightbox2.05/js/lightbox.js"></script>
+    <link rel="stylesheet" href="../../lightbox2.05/css/lightbox.css" type="text/css" media="screen" />
+    <link href="../../Content/Tooltip.css" rel="stylesheet" type="text/css" />
+<h2>Editor</h2>
+
+
+<label> Search by Title, Artist, Theme or Media (leave blank to return all pictures)  </label>
+
+<a href="#" class="tt">[?]
+    <span class="tooltip">
+        <span class="top"></span>
+        <span class="middle">You can use 'anon' for anonymous.<br> Or 'untitled' for untitled</span>
+        <span class="bottom"></span>
+    </span>
+</a>     
+
+@using (Ajax.BeginForm("Searching", "PictureEditor", new AjaxOptions { OnFailure = "showFailure", LoadingElementId = "spinner", UpdateTargetId = "pictureDiv" }))
+{    
+    <input type="text" name="name" value="@ViewBag.SearchCriteria"  />
+    <input type="submit" value="Search" />
+}
+
+<img id="spinner" src="../../images/loading.gif" style="display: none;">
+
+ <div id="pictureDiv">
+ @Html.Partial("Searching")
+ </div>

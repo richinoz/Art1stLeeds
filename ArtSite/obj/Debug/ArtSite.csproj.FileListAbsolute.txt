@@ -1,0 +1,16 @@
+C:\Projects\ArtSiteRazor\ArtSite\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\ArtSiteRazor\ArtSite\bin\ArtSite.dll
+C:\Projects\ArtSiteRazor\ArtSite\bin\ArtSite.pdb
+C:\Projects\ArtSiteRazor\ArtSite\bin\EntityFramework.dll
+C:\Projects\ArtSiteRazor\ArtSite\bin\HibernatingRhinos.Profiler.Appender.v4.0.dll
+C:\Projects\ArtSiteRazor\ArtSite\bin\log4net.dll
+C:\Projects\ArtSiteRazor\ArtSite\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\ArtSiteRazor\ArtSite\bin\MvcMiniProfiler.dll
+C:\Projects\ArtSiteRazor\ArtSite\bin\Rhino.Mocks.dll
+C:\Projects\ArtSiteRazor\ArtSite\bin\WebActivator.dll
+C:\Projects\ArtSiteRazor\ArtSite\bin\EntityFramework.xml
+C:\Projects\ArtSiteRazor\ArtSite\bin\log4net.xml
+C:\Projects\ArtSiteRazor\ArtSite\bin\MvcMiniProfiler.pdb
+C:\Projects\ArtSiteRazor\ArtSite\bin\MvcMiniProfiler.xml
+C:\Projects\ArtSiteRazor\ArtSite\obj\Debug\ArtSite.dll
+C:\Projects\ArtSiteRazor\ArtSite\obj\Debug\ArtSite.pdb

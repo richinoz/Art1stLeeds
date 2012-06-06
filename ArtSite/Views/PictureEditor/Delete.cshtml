@@ -1,0 +1,53 @@
+﻿@model ArtSite.Models.Views.EditPictureViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+
+
+
+@using (Html.BeginForm()) {
+ 
+     @Html.ValidationSummary(true, "Delete was unsuccessful.")
+     <h3>Are you sure you want to delete this?</h3>
+     <fieldset>
+        
+         <div class="display-label">Title</div>
+         <div class="display-field">
+             @Html.DisplayFor(model => model.Picture.Title)
+         </div>
+
+         <div class="display-label">Price</div>
+         <div class="display-field">
+             @Html.DisplayFor(model => model.Picture.Price)
+         </div>
+
+         <div class="display-label">Artist</div>
+         <div class="display-field">
+             @Html.DisplayFor(model => model.Picture.Artist)
+         </div>
+
+         @Html.HiddenFor(model=>model.Picture.ID)
+
+                 
+     </fieldset>
+
+     <p>
+         <input style="" type="submit" value="Delete"/>
+     </p>
+ }
+    
+    @{
+        if (Model.ReturnUrl != null)
+        {
+            <a href="@Model.ReturnUrl">Back to List</a>
+        }
+        else
+        {
+            @Html.ActionLink("Back to List", "Searching")
+        }
+    }
+

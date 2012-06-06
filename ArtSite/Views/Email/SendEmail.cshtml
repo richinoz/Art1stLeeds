@@ -1,0 +1,72 @@
+﻿
+@using ArtSite.Models
+
+@model EMailView
+
+@{var username = Model.LogOnModel != null ? Model.LogOnModel.UserName : "";
+  var email = Model.LogOnModel != null ? Model.LogOnModel.Email : "";
+  var mailTo = "mailto:" + @email;
+  var telephone = Model.LogOnModel != null ? Model.LogOnModel.Telephone : "";} 
+
+
+ <div class="contactInfo">
+     <div class="contactIcon">
+        <img  src="../../images/email-icon.jpg" />
+      </div>
+    <div class="Email">
+        <a href="@mailTo">@email</a>    
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="contactIcon">
+        <img width="12px" src="../../images/phone-icon.jpg" />
+    </div>
+
+    <div >
+        @telephone
+    </div>
+
+
+</div>
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@Html.ValidationSummary(true, "Send email was unsuccessful. Please correct the errors and try again.")
+
+
+
+@using (Html.BeginForm())
+{
+   
+    <div style="clear:both;">
+        <fieldset>
+            <legend>Send email to '@username'</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Message)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(m => m.Message, new { style = "width: 600px" })
+                @Html.ValidationMessageFor(m => m.Message)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.EmailFrom, "From")
+            </div>
+            <div class="editor-field" >
+                @Html.TextBoxFor(m => m.EmailFrom)
+                @Html.ValidationMessageFor(m => m.EmailFrom)
+            </div>
+            
+            @Html.HiddenFor(m => m.LogOnModel.UserName)
+            @Html.HiddenFor(m => m.LogOnModel.Email)
+            @Html.HiddenFor(m => m.LogOnModel.Password)
+            <p>
+                <input type="submit" value="Send" />
+            </p>
+        </fieldset>
+    </div>
+}

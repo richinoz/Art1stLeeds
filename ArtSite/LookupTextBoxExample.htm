@@ -1,0 +1,136 @@
+﻿<html>   
+<head>   
+    <link href="Content/WordPress.css" rel="stylesheet" type="text/css" />
+
+  <title>Autocomplete Textbox Example</title>   
+         
+        <script type="text/javascript">   
+               var arrValues = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "brown"];   
+        </script>
+   
+   <script type="text/javascript">
+
+       var isOpera = navigator.userAgent.indexOf("Opera") > -1;
+       var isIE = navigator.userAgent.indexOf("MSIE") > 1 && !isOpera;
+       var isMoz = navigator.userAgent.indexOf("Mozilla/5.") == 0 && !isOpera;
+
+       function textboxSelect(oTextbox, iStart, iEnd) {
+           switch (arguments.length) {
+               case 1:
+                   alert('1');
+                   oTextbox.select();
+                   break;
+               case 2:
+                   alert('2');
+                   iEnd = oTextbox.value.length;
+                   /* falls through */
+               case 3:
+                   if (isIE) {
+                       //alert(iStart + ' ' + iEnd + ' ' + oTextbox.value);  
+                       oTextbox.focus();
+                       var oRange = oTextbox.createTextRange();
+                       oRange.moveStart('character', -iStart);
+                       // oRange.moveEnd('character',  iEnd);      
+                       //oRange.moveEnd('character', -oTextbox.value.length + iEnd);        
+                       //oRange.select();                                                
+                   } else if (isMoz) {
+                       alert('3b');
+                       oTextbox.setSelectionRange(iStart, iEnd);
+                   }
+           }
+           oTextbox.focus();
+       }
+       function testfunc() {
+           alert('testfunc');
+       }
+
+       function textboxReplaceSelect(oTextbox, sText) {
+           if (isIE) {
+               var oRange = document.selection.createRange();
+               oRange.text = sText;
+               oRange.collapse(true);
+               oRange.select();
+           } else if (isMoz) {
+               var iStart = oTextbox.selectionStart;
+               oTextbox.value = oTextbox.value.substring(0, iStart) + sText + oTextbox.value.substring(oTextbox.selectionEnd, oTextbox.value.length);
+               oTextbox.setSelectionRange(iStart + sText.length, iStart + sText.length);
+           }
+           oTextbox.focus();
+       }
+       function autocompleteMatch(sText, arrValues) {
+           var retValues = new Array();
+           var j = 0;
+           for (var i = 0; i < arrValues.length; i++) {
+               if (arrValues[i].indexOf(sText) == 0) {
+                   //return arrValues[i]; 
+                   retValues[j] = arrValues[i];
+                   j++;
+               }
+           }
+           return retValues;
+       }
+
+       function autocomplete(oTextbox, txtReplaceTextbox, oEvent, arrValues) {
+           switch (oEvent.keyCode) {
+               case 113: alert(isIE);
+               case 38: //up arrow
+               case 40: //down arrow   
+               case 37: //left arrow   
+               case 39: //right arrow   
+               case 33: //page up    
+               case 34: //page down    
+               case 36: //home    
+               case 35: //end                    
+               case 13: //enter    
+               case 9: //tab    
+               case 27: //esc    
+               case 16: //shift    
+               case 17: //ctrl    
+               case 18: //alt    
+               case 20: //caps lock   
+               case 8: //backspace    
+               case 46: //delete   
+                   return true;
+                   break;
+               default:
+
+                   var t = String.fromCharCode(isIE ? oEvent.keyCode : oEvent.charCode);
+                   //alert(t);
+                   //textboxReplaceSelect(oTextbox, String.fromCharCode(isIE ? oEvent.keyCode : oEvent.charCode);  
+                   //textboxReplaceSelect(oTextbox, t);
+                   var iLen = oTextbox.value.length;
+                   var sMatch = autocompleteMatch(oTextbox.value, arrValues);
+                   var txtReplaceDisplay = document.getElementById(txtReplaceTextbox);
+                   //alert(sMatch);
+                   if (sMatch != null) {
+
+                       //alert(txtReplaceDisplay.value);
+                       txtReplaceDisplay.value = sMatch;
+                       // textboxSelect(txtReplaceDisplay, iLen, txtReplaceDisplay.value.length);   
+                   } else {
+                       txtReplaceDisplay.value = '';
+                   }
+           }
+           return false;
+       }   
+ 
+ </script>
+ 
+</head>   
+<body>   
+<h2>Autocomplete Textbox Example</h2>   
+
+<div id="content" role="main">
+    <div id="respond">
+        <p>Type in a color in lowercase:</p><br />  
+        <p class="comment-form-author">
+            <label for="author">Name</label>
+            <span class="required">*</span>
+            <input type="text" size="30" id="author" aria-required='true' onkeyup="return autocomplete(this, 'txtReplaceDisplay', event, arrValues)" />  
+        </p>
+        <textarea id="txtReplaceDisplay" cols="1" rows="3"></textarea>
+        <input type="text"  value="testbox" id="txtReplaceDisplay1" onkeyup="return testfunc()" />
+    </div> 
+</div>
+</body>   
+</html>

@@ -1,0 +1,20 @@
+2012-03-14 10:40:11,923 [1] INFO  Rhino.Licensing.LicenseValidator [(null)] - License expiration date is 12/05/2011 00:51:43
+2012-03-14 10:40:12,016 [1] WARN  Rhino.Licensing.LicenseValidator [(null)] - Could not validate existing license
+<?xml version="1.0" encoding="utf-8"?>
+<license id="54c2290b-56c3-4240-f71e-3609a368ce88" expiration="2011-12-05T00:51:43.0000000" type="Trial" prof="EFProf">
+<name>rich smith</name>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+<Reference URI="">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<DigestValue>3FyQjWYMM7rG645X+akocYMKeto=</DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue>dAP6W8abCvMPARBl7W/FEwwn5kQ15HkVhXi51Chk1Q9o991dwvIJQwxjzTxKrK2SEzkDN79x0n3Ad7Alf7g6hJct9mTBg6QxEznxGcQSvHtVu1nnkK1v+2bKkRahKkziPYAClumwCoSpABNf0KVW4mfbg/UCP6ooXVxuIb8oKVY=</SignatureValue>
+</Signature>
+</license>

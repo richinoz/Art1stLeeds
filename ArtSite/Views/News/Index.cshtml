@@ -1,0 +1,27 @@
+﻿@using ArtSite.Models
+@model NewsItem
+
+
+@{
+    ViewBag.Title = "News";
+}
+<div style="padding: 20px;">
+
+<h2> @Html.DisplayFor(model => model.Subject)</h2>
+
+
+@{
+    var pathSmallImage = "/MyFiles/news.jpg";
+    if (File.Exists(HttpContext.Current.Server.MapPath(pathSmallImage)))
+    {
+         <div style="float:right; padding: 40px;">
+              <a href="#" title="news"><img alt="pic" src="@pathSmallImage" title=""/></a>
+         </div>
+    }
+}
+    
+     <div class="editor-label">
+        @Html.DisplayFor(model => model.Body)
+    </div>
+
+</div>

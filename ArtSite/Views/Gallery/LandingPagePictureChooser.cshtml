@@ -1,0 +1,69 @@
+﻿@using System.Threading
+@using ArtSite
+@using ArtSite.Models.Views
+@model LandingPageChooserViewModel
+@{    
+    Layout = "~/Views/Shared/_Layout_wide.cshtml";
+}
+
+    <script src="../../shadowbox-3.0.3/shadowbox.js" type="text/javascript"></script>
+    <link href="../../shadowbox-3.0.3/shadowbox.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        Shadowbox.init({
+            handleOversize: "resize",
+            displayNav: true,
+            handleUnsupported: "remove",
+            autoplayMovies: false,
+            slideshowDelay: 5,
+            overlayOpacity: 0.9,
+            onFinish: function () { $('#sb-body-inner img').one('click', Shadowbox.next); }
+
+        });
+        
+    </script>
+
+    <link href="../../Content/masonryStyle.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/Masonry/modernizr-transitions.js" type="text/javascript"></script>
+    <script src="../../Scripts/Masonry/jquery-1.6.2.min.js"></script>
+    <script src="../../Scripts/Masonry/jquery.masonry.min.js"></script>
+  
+    <script>
+        $(function () {
+
+            var $container = $('#container');
+
+            $container.imagesLoaded(function () {
+                $container.masonry({
+                    itemSelector: '.box',
+                    columnWidth: 20,
+                    isAnimated: !Modernizr.csstransitions
+                });
+            });
+        });
+    </script>
+   
+  <!-- scripts at bottom of page -->
+    <div id="container" class="transitions-enabled clearfix">
+    @{if (Model != null)
+      {
+         
+          foreach (var item in Model.Pictures)
+          {
+              var path = "/MyFiles/" + @item.ID + ".jpg";
+              var pathSmallImage = "/MyFiles/" + @item.ID + "_s.jpg";
+                
+                <div class="box">
+                    <a href="@Url.Action("LandingPagePictureReplacer", new { landPageItemId = Model.LandingPageItemId, newPictureId = @item.ID })"><img src="@Url.Content(@pathSmallImage)" alt="Edit" /></a>
+@*
+                    <a href="@path"><img alt="pic" src="@pathSmallImage" title="" onError="this.src='../../images/error.jpg'" 
+                            /></a>*@
+                                     
+                </div>
+                
+          }        
+                   
+      }   
+               
+    } 
+       </div>
