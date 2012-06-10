@@ -45,10 +45,20 @@ namespace ArtSite
 
             foreach (var user in allUsers)
             {
+                var userName = user.UserName.Split(' ');
+
                 routes.MapRoute(
                   user.UserName, // Route name
                   string.Format("{0}/{{*extra}}", user.UserName) , // URL with parameters
                   new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
+
+                if(userName.Count()>1)
+                {
+                  routes.MapRoute(
+                  userName[0] + "1", // Route name
+                  string.Format("{0}/{{*extra}}", userName[0]), // URL with parameters
+                  new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
+                }
             }
 
        //     routes.MapRoute(
