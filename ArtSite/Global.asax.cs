@@ -59,39 +59,41 @@ namespace ArtSite
                   string.Format("{0}/{{*extra}}", userName[0]), // URL with parameters
                   new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
                 }
+
+                routes.MapRoute(
+                  userName[0] + "Galleria"+ user.UserId, // Route name
+                  string.Format("SlideShow/{0}", userName[0]), // URL with parameters
+                  new { controller = "Gallery", action = "Galleria", artistId = user.UserId });
+
+                routes.MapRoute(
+                  userName[0] + "BackGround" + user.UserId, // Route name
+                  string.Format("Background/{0}", userName[0]), // URL with parameters
+                  new { controller = "Gallery", action = "ArtistHome", userId = user.UserId });
+
+                routes.MapRoute(
+                 userName[0] + "Contact" + user.UserId, // Route name
+                 string.Format("Contact/{0}", userName[0]), // URL with parameters
+                 new { controller = "Email", action = "SendEmail", artistId = user.UserId });
+
+                //routes.MapRoute(
+                // userName[0] + "ArtistGallery" + user.UserId, // Route name
+                // string.Format("Gallery/ArtistGallery/{0}", userName[0]), // URL with parameters
+                // new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
             }
 
-       //     routes.MapRoute(
-       //"Paul", // Route name
-       //"Paul/{action}", // URL with parameters
-       //new { controller = "Gallery", action = "ArtistGallery", userId = 5 });
-
-       //     routes.MapRoute(
-       //         "Ellie", // Route name
-       //         "{controller}/{action}/Ellie", // URL with parameters
-       //         new { controller = "Gallery", action = "ArtistGallery", userId = 3 });
-
-       //     routes.MapRoute(
-       //         "Carol", // Route name
-       //         "Carol/{action}", // URL with parameters
-       //         new { controller = "Gallery", action = "ArtistGallery", userId = 13 });
-
-       //     routes.MapRoute(
-       //         "David", // Route name
-       //         "David/{action}", // URL with parameters
-       //         new { controller = "Gallery", action = "ArtistGallery", userId = 15 });
-
-       //     routes.MapRoute(
-       //         "Isa", // Route name
-       //         "Isa/{*extra}", // URL with parameters
-       //         new { controller = "Gallery", action = "ArtistGallery", userId = 4 });
-
+            routes.MapRoute(
+              "Home", // Route name
+              "Home/{action}/{*id}", // URL with parameters
+              new { controller = "Home", action = "Index" } // Parameter defaults
+            );
 
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "LandingPage", id = UrlParameter.Optional } // Parameter defaults
             );
+
+           
 
         }
 
