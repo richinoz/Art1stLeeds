@@ -36,7 +36,10 @@
           foreach (var item in Model)
           {
               var pathSmallImage = "/MyFiles/" + @item.Picture.ID + "_s.jpg";
-              var artisthome = "../Gallery/ArtistGallery?userId=" + @item.Picture.UserId; 
+              //var artisthome = "../Gallery/ArtistGallery?userId=" + @item.Picture.UserId; 
+              var artist = UserDal.AllUsers.FirstOrDefault(x=>x.UserId==@item.Picture.UserId);
+              
+              var artisthome =  artist.UserName; 
               
                 <div class="box">
                
