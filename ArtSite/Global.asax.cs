@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ArtSite.Controllers;
+using ArtSite.DataAccess;
 using ArtSite.Filters;
 using ArtSite.Models;
 using MvcMiniProfiler;
@@ -49,19 +50,19 @@ namespace ArtSite
 
                 routes.MapRoute(
                   user.UserName, // Route name
-                  string.Format("{0}/{{*extra}}", user.UserName) , // URL with parameters
+                  string.Format("{0}/{{*extra}}", user.UserName), // URL with parameters
                   new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
 
-                if(userName.Count()>1)
+                if (userName.Count() > 1)
                 {
-                  routes.MapRoute(
-                  userName[0] + "1", // Route name
-                  string.Format("{0}/{{*extra}}", userName[0]), // URL with parameters
-                  new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
+                    routes.MapRoute(
+                    userName[0] + "1", // Route name
+                    string.Format("{0}/{{*extra}}", userName[0]), // URL with parameters
+                    new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
                 }
 
                 routes.MapRoute(
-                  userName[0] + "Galleria"+ user.UserId, // Route name
+                  userName[0] + "Galleria" + user.UserId, // Route name
                   string.Format("SlideShow/{0}", userName[0]), // URL with parameters
                   new { controller = "Gallery", action = "Galleria", artistId = user.UserId });
 
@@ -93,7 +94,7 @@ namespace ArtSite
                 new { controller = "Home", action = "LandingPage", id = UrlParameter.Optional } // Parameter defaults
             );
 
-           
+
 
         }
 
@@ -103,7 +104,7 @@ namespace ArtSite
 
             //Database.SetInitializer<ArtGalleryDBContext>(new RecreateDatabaseIfModelChanges<ArtGalleryDBContext>());
 
-           // RegisterCustomFilters();
+            // RegisterCustomFilters();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
@@ -113,7 +114,7 @@ namespace ArtSite
             log4net.Config.XmlConfigurator.Configure();
 
             Logger.Info("start application", null);
-        }     
+        }
 
         void Application_Error(object sender, EventArgs e)
         {
@@ -142,11 +143,11 @@ namespace ArtSite
             Response.Write("<h2>Global Page Error</h2>\n");
             Response.Write(
                 "<p>" + exc.Message + "</p>\n");
-            Response.Write(string.Format("Return to the <a href='/Home/Index'>" + "Default Page</a>\n")); 
+            Response.Write(string.Format("Return to the <a href='/Home/Index'>" + "Default Page</a>\n"));
 
             // Log the exception and notify system operators
             Logger.Error("DefaultPage", exc);
-           // Logger.NotifySystemOps(exc);
+            // Logger.NotifySystemOps(exc);
 
             // Clear the error from the server
             Server.ClearError();
