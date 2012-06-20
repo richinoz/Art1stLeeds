@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using ArtSite.DataAccess;
+using ArtSite.Models;
 
-namespace ArtSite.Models
+namespace ArtSite.DataAccess
 {
-    public interface IUserDal:IDAL<LogOnModel>
+    public interface IUserDal : IDAL<LogOnModel>
     {
 
     }
@@ -20,7 +20,7 @@ namespace ArtSite.Models
         {
             get
             {
-                if (_allUsers  == null)
+                if (_allUsers == null)
                 {
                     GetAllUsers();
                 }
