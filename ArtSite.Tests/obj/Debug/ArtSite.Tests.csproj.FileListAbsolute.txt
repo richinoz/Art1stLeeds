@@ -55,3 +55,5 @@ C:\Rich\Dev\Art1stLeeds\ArtSite.Tests\bin\Debug\MvcMiniProfiler.xml
 C:\Rich\Dev\Art1stLeeds\ArtSite.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Rich\Dev\Art1stLeeds\ArtSite.Tests\obj\Debug\ArtSite.Tests.dll
 C:\Rich\Dev\Art1stLeeds\ArtSite.Tests\obj\Debug\ArtSite.Tests.pdb
+C:\Projects\Razor-Git\ArtSite.Tests\bin\Debug\Ionic.Zip.dll
+C:\Projects\Razor-Git\ArtSite.Tests\bin\Debug\Ionic.Zip.xml
