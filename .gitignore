@@ -1,27 +1,10 @@
 
-/ArtSite/bin
-/ArtSite.Tests/bin
-/ArtSite.Tests/bin/Debug
-/ArtSite.Tests/obj
-/_ReSharper.ArtSite-Razor
+bin
+obj
+_ReSharper.ArtSite-Razor
 /ArtSite/Art1stLeeds.zip
 
 
-/ArtSite.Tests/bin
-/ArtSite.Tests/obj
-/_ReSharper.ArtSite-Razor
+
 /ArtSite/hits.bin
-/ArtSite/obj
-/ArtSite/MyFiles
-/ArtSite/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
-/ArtSite/obj/Debug/ResolveAssemblyReference.cache
-/ArtSite/obj/Debug/TempPE
-/ArtSite/obj/Debug/ArtSite.csproj.FileListAbsolute.txt
-/ArtSite/obj/Debug/ArtSite.dll
-/ArtSite/obj/Debug/ArtSite.pdb
-/ArtSite.Tests/obj
-/ArtSite.Tests/bin
-/ArtSite.Tests/bin
-/ArtSite.Tests/obj
-/ArtSite.Tests/bin/Debug
-/_ReSharper.ArtSite-Razor
+
