@@ -4,7 +4,7 @@ rem "C:\Program Files (x86)\FileZilla FTP Client\filezilla.exe" ftp:richinoz:bol
 
 @echo off
 echo ftp
-echo user richinoz> ftpcmd.dat
+echo user %2> ftpcmd.dat
 echo B0llocks>> ftpcmd.dat
 echo bin>> ftpcmd.dat
 echo put %1>> ftpcmd.dat
