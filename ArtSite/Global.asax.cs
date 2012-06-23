@@ -89,6 +89,12 @@ namespace ArtSite
             );
 
             routes.MapRoute(
+               "Download", // Route name
+               "Download/{fileName}", // URL with parameters
+               new { controller = "Download", action = "Index", fileName = UrlParameter.Optional } // Parameter defaults
+           );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "LandingPage", id = UrlParameter.Optional } // Parameter defaults

@@ -39,6 +39,13 @@ namespace ArtSite.Controllers
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 //if (ValidateUser(model.UserName, model.Password))
                 {
+                    //check that user has logonModel record too!
+                    var logOnModel = UserDal.AllUsers.FirstOrDefault(x => x.UserName == model.UserName);
+
+                    if(logOnModel==null)
+                    {
+                        CreateUser(model.UserName, model.Email);
+                    }
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
@@ -135,10 +142,10 @@ namespace ArtSite.Controllers
             return View(model);
         }
 
-        public LogOnModel CreateUser(string name, string email)
+        private LogOnModel CreateUser(string name, string email)
         {
             name = name.ToLower();
-            var user = new LogOnModel(){ UserName =  name, Password = "bogus", Email = email, Permissions = "0"};
+            var user = new LogOnModel(){ UserName =  name, Password = "Bogus-exists in AspNet db", Email = email, Permissions = "0"};
 
             _userDal.Enitities.Add(user);
             try

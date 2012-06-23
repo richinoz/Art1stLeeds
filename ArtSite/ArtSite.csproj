@@ -89,13 +89,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountViewController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\PermissionsController.cs" />
     <Compile Include="Controllers\PictureCache.cs" />
     <Compile Include="Controllers\PictureEditorController.cs" />
-    <Compile Include="Controllers\PUploaderController.cs" />
     <Compile Include="Controllers\UploaderController.cs" />
     <Compile Include="DataAccess\IUserBlogDal.cs" />
     <Compile Include="DataAccess\IBlogPostDal.cs" />

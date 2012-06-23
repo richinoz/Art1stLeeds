@@ -1,3 +1,4 @@
 <Modules>
   <Module PersistentId="19745907-E5C6-423A-BACA-AE42592F72A7" ModuleId="ArtSite" />
+  <Module PersistentId="9E379692-A0EE-442B-AFC4-01686FB31C36" ModuleId="ArtSite.Tests" />
 </Modules>

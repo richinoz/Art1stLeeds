@@ -10,6 +10,7 @@ using ArtSite.Models;
 
 namespace ArtSite.Controllers
 {
+    [Authorize]
     public class UploaderController : Controller
     {
         private ArtGalleryDBContext _db = new ArtGalleryDBContext();
@@ -43,57 +44,57 @@ namespace ArtSite.Controllers
             return View();
         }
         // This action handles the form POST and the upload
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase file)
-        {
-            HttpFileCollectionBase hfc = null;
-            if (Session["UploadFiles"] != null)
-            {
-                hfc = (HttpFileCollectionBase)Session["UploadFiles"];
-                Session.Add("UploadFiles", null);
-            }
-            else
-            {
-                hfc = Request.Files;
-            }
+//        [HttpPost]
+//        public ActionResult Index(HttpPostedFileBase file)
+//        {
+//            HttpFileCollectionBase hfc = null;
+//            if (Session["UploadFiles"] != null)
+//            {
+//                hfc = (HttpFileCollectionBase)Session["UploadFiles"];
+//                Session.Add("UploadFiles", null);
+//            }
+//            else
+//            {
+//                hfc = Request.Files;
+//            }
 
-            List<string> filesUploaded = new List<string>();
-            try
-            {
-                // Get the HttpFileCollection
+//            List<string> filesUploaded = new List<string>();
+//            try
+//            {
+//                // Get the HttpFileCollection
 
-                for (int i = 0; i < hfc.Count; i++)
-                {
-                    HttpPostedFileBase hpf = hfc[i];
-                    if (hpf.ContentLength > 0 && FileIsPicture(hpf))
-                    {
+//                for (int i = 0; i < hfc.Count; i++)
+//                {
+//                    HttpPostedFileBase hpf = hfc[i];
+//                    if (hpf.ContentLength > 0 && FileIsPicture(hpf))
+//                    {
              
 
-                        byte[] buffer = ImageProcessor.ImageAsByteArray(hpf.InputStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+//                        byte[] buffer = ImageProcessor.ImageAsByteArray(hpf.InputStream, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-                        PictureItem picture = new PictureItem {ImageT = buffer};
+//                        PictureItem picture = new PictureItem {ImageT = buffer};
 
 
-                        _pictureDal.Enitities.Add(picture);
-                        _pictureDal.SaveChanges();
+//                        _pictureDal.Enitities.Add(picture);
+//                        _pictureDal.SaveChanges();
 
-                        filesUploaded.Add(hpf.FileName);
+//                        filesUploaded.Add(hpf.FileName);
 
-                    }
-                }
+//                    }
+//                }
 
-                PictureCache.Refresh();
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                throw;
-#endif
-            }
+//                PictureCache.Refresh();
+//            }
+//            catch (Exception ex)
+//            {
+//#if DEBUG
+//                throw;
+//#endif
+//            }
 
-            return View("FilesUploaded", filesUploaded);
+//            return View("FilesUploaded", filesUploaded);
         
-        }
+//        }
 
         public ActionResult FilesUploaded()
         {
