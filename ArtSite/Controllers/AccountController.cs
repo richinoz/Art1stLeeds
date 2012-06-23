@@ -42,7 +42,7 @@ namespace ArtSite.Controllers
                     //check that user has logonModel record too!
                     var logOnModel = UserDal.AllUsers.FirstOrDefault(x => x.UserName == model.UserName);
 
-                    if(logOnModel==null)
+                    if (logOnModel == null)
                     {
                         CreateUser(model.UserName, model.Email);
                     }
@@ -69,15 +69,15 @@ namespace ArtSite.Controllers
 
         public bool ValidateUser(string userName, string password)
         {
-            var user = _userDal.Enitities.FirstOrDefault(x=>x.UserName.ToLower() == userName.ToLower());
+            var user = _userDal.Enitities.FirstOrDefault(x => x.UserName.ToLower() == userName.ToLower());
             if (user != null)
                 if (user.UserName.ToLower() == userName.ToLower() && user.Password == password)
                     return true;
-                
+
             return false;
         }
 
-      
+
         //
         // GET: /Account/LogOff
 
@@ -107,7 +107,7 @@ namespace ArtSite.Controllers
                 // Attempt to register the user
                 MembershipCreateStatus createStatus;
                 Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
-                
+
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     var user = CreateUser(model.UserName, model.Email);
@@ -120,22 +120,8 @@ namespace ArtSite.Controllers
                 }
 
                 ModelState.AddModelError("", ErrorCodeToString(createStatus));
-                
 
-
-               // // Attempt to register the user
-               //// MembershipCreateStatus createStatus;
-               // var user = CreateUser(model.UserName, model.Password, model.Email);
-
-               // if (user != null)
-               // {
-               //     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
-               //     return RedirectToAction("Index", "Home");
-               // }
-               // else
-               // {
-               //     ModelState.AddModelError("", ("user already exists"));
-               // }
+          
             }
 
             // If we got this far, something failed, redisplay form
@@ -145,7 +131,14 @@ namespace ArtSite.Controllers
         private LogOnModel CreateUser(string name, string email)
         {
             name = name.ToLower();
-            var user = new LogOnModel(){ UserName =  name, Password = "Bogus-exists in AspNet db", Email = email, Permissions = "0"};
+            var user = new LogOnModel()
+            {
+                UserName = name,
+                Password = "Bogus-exists in AspNet db",
+                Email = email,
+                Permissions = "0",
+                Active = true
+            };
 
             _userDal.Enitities.Add(user);
             try
@@ -157,14 +150,14 @@ namespace ArtSite.Controllers
                 var u = _userDal.Enitities.FirstOrDefault(x => x.UserName == name);
                 if (u != null)
                 {
-                    Logger.Error("user already exists in CreateUser", ex);                    
+                    Logger.Error("user already exists in CreateUser", ex);
                 }
                 else
                     throw;
-                
+
             }
-           
-            return user;            
+
+            return user;
         }
         //
         // GET: /Account/ChangePassword
@@ -234,7 +227,7 @@ namespace ArtSite.Controllers
             //var user = users.Where(x => x.Email.ToLower() == eMail.ToLower()).ToList();
 
             var currentUserName = Membership.GetUserNameByEmail(logOnModel.Email);
-            
+
 
             if (currentUserName != null)
             {
@@ -254,14 +247,14 @@ namespace ArtSite.Controllers
 
                     return RedirectToAction("PassWordSent", new { emailAddress = logOnModel.Email });
                 }
-               
+
             }
             else
             {
                 ModelState.AddModelError("", string.Format("'{0}' is not registered", logOnModel.Email));
                 return View();
             }
-          
+
             ModelState.AddModelError("", "Failed to send");
             return View();
         }

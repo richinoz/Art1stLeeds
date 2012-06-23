@@ -19,6 +19,8 @@ namespace ArtSite
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static string Title;
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -106,6 +108,7 @@ namespace ArtSite
 
         protected void Application_Start()
         {
+
             AreaRegistration.RegisterAllAreas();
 
             //Database.SetInitializer<ArtGalleryDBContext>(new RecreateDatabaseIfModelChanges<ArtGalleryDBContext>());
@@ -163,6 +166,27 @@ namespace ArtSite
         protected void Session_Start()
         {
             HitCounter.IncrementHitCounter();
+        }
+
+
+        public static string AppTitle
+        {
+            get
+            {
+                if (Title == null)
+                {
+                    try
+                    {
+                        Title = System.Configuration.ConfigurationManager.AppSettings["Title"];
+                    }
+                    catch 
+                    {
+                    }
+                    
+                }
+
+                return Title;
+            }
         }
     }
 }
