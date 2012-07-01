@@ -50,10 +50,22 @@ namespace ArtSite
             {
                 var userName = user.UserName.Split(' ');
 
+                //routes.MapRoute(
+                //  user.UserName, // Route name
+                //  string.Format("{0}/{{*extra}}", user.UserName), // URL with parameters
+                //  new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
+
                 routes.MapRoute(
-                  user.UserName, // Route name
-                  string.Format("{0}/{{*extra}}", user.UserName), // URL with parameters
-                  new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
+                 user.UserName, // Route name
+                 string.Format("{0}/{{*theme}}", user.UserName), // URL with parameters
+                 new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId  });
+
+                //this is temporary!
+                routes.MapRoute(
+                  user.UserName + "ArtistGallery", // Route name
+                  string.Format("ArtistGallery2/{0}", user.UserName), // URL with parameters
+                  new { controller = "Gallery", action = "ArtistGallery2", userId = user.UserId });
+
 
                 if (userName.Count() > 1)
                 {

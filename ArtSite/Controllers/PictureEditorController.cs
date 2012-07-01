@@ -206,31 +206,39 @@ namespace ArtSite.Controllers
 
         public static List<PictureItemNoBufferData> GetImagesFromDbMin(LogOnModel user)
         {
-            using (ArtGalleryDBContext db = new ArtGalleryDBContext())
+            return GetImagesFromDbMin(user, null);
+        }
+
+        public static List<PictureItemNoBufferData> GetImagesFromDbMin(LogOnModel user, string theme)
+        {
+            using (var db = new ArtGalleryDBContext())
             {
                 var userId = user != null ? user.UserId : -1;
 
-                PictureDal pictureDal = new PictureDal(new ArtGalleryDBContext());
+                var pictureDal = new PictureDal(db);
 
                 var model = pictureDal.Enitities.Where(x => x.UserId == userId);
 
-                var query = from c in model
-                        select new PictureItemNoBufferData()
-                        {
-                            Artist = c.Artist,
-                            Created = c.Created,
-                            ID = c.ID,
-                            Media = c.Media,
-                            Price = c.Price,
-                            Size = c.Size,
-                            Theme = c.Theme,
-                            Title = c.Title,
-                            UserId = c.UserId,
-                            DisplayOrder = c.DisplayOrder
-                            
-                        };
+                if (theme != null)
+                    model = model.Where(x => x.Theme.ToLower().Contains(theme));
 
-                return query.OrderBy(x=>x.DisplayOrder ?? 9999).ToList();
+                var query = from c in model
+                            select new PictureItemNoBufferData()
+                            {
+                                Artist = c.Artist,
+                                Created = c.Created,
+                                ID = c.ID,
+                                Media = c.Media,
+                                Price = c.Price,
+                                Size = c.Size,
+                                Theme = c.Theme,
+                                Title = c.Title,
+                                UserId = c.UserId,
+                                DisplayOrder = c.DisplayOrder
+
+                            };
+
+                return query.OrderBy(x => x.DisplayOrder ?? 9999).ToList();
             }
         }
 
