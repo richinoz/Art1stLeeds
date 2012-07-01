@@ -90,7 +90,32 @@ namespace ArtSite.Controllers
             return View(PictureEditorController.GetImagesFromDbMin(name));
         }
 
-        public ViewResult ArtistGallery(long userId)
+        public ViewResult ArtistGallery(long userId, string theme)
+        {
+            var artist = Helpers.Helpers.GetUserForId(userId, _db);
+            var artistId = artist != null ? artist.UserId : 0;
+            var name = artist != null ? artist.DisplayNameText : string.Empty;
+
+            ViewBag.ArtistId = artistId;
+            ViewBag.ArtistName = name;
+            ViewBag.Title = name;
+            ViewBag.Model = artist;
+            ViewBag.Menu = "_ArtistHome";
+
+
+            var artistGalleryViewModel = (ArtistGalleryViewModel)TempData["categories"] ?? new ArtistGalleryViewModel()
+                                                                {
+                                                                    Pictures = (PictureEditorController.GetImagesFromDbMin(artist, theme)),
+                                                                    Artist = artist,
+                                                                };
+
+            if (artistGalleryViewModel.Categories != null && theme!=null)
+                artistGalleryViewModel.Pictures = artistGalleryViewModel.Categories.FirstOrDefault(x => x.Key.ToLower() == theme).Value;
+         
+            return View(artistGalleryViewModel);
+        }
+
+        public ViewResult ArtistGallery2(long userId)
         {
             var artist = Helpers.Helpers.GetUserForId(userId, _db);
             var artistId = artist != null ? artist.UserId : 0;
@@ -103,10 +128,24 @@ namespace ArtSite.Controllers
             ViewBag.Menu = "_ArtistHome";
 
             var artistGalleryViewModel = new ArtistGalleryViewModel()
-                                                                {
-                                                                    Pictures = (PictureEditorController.GetImagesFromDbMin(artist)),
-                                                                    Artist = artist
-                                                                };
+            {
+                Pictures = (PictureEditorController.GetImagesFromDbMin(artist)),
+                Artist = artist,
+                Categories = new Dictionary<string, List<PictureItemNoBufferData>>()
+            };
+
+            foreach (var picture in artistGalleryViewModel.Pictures)
+            {
+                var theme = string.IsNullOrWhiteSpace(picture.Theme) ? "other" : picture.Theme;
+
+                if (!artistGalleryViewModel.Categories.ContainsKey(theme))
+                    artistGalleryViewModel.Categories.Add(theme, new List<PictureItemNoBufferData>());
+
+                artistGalleryViewModel.Categories[theme].Add(picture);
+            }
+
+            TempData["categories"] = artistGalleryViewModel;
+
             return View(artistGalleryViewModel);
         }
 
