@@ -96,9 +96,13 @@ namespace ArtSite.Controllers
             var artistId = artist != null ? artist.UserId : 0;
             var name = artist != null ? artist.DisplayNameText : string.Empty;
 
+            string themeVal = null;
+            if (theme!=null)
+                themeVal = " - " + theme;
+            
             ViewBag.ArtistId = artistId;
             ViewBag.ArtistName = name;
-            ViewBag.Title = name;
+            ViewBag.Title = string.Format("{0}{1}", name, themeVal);
             ViewBag.Model = artist;
             ViewBag.Menu = "_ArtistHome";
 
@@ -106,16 +110,19 @@ namespace ArtSite.Controllers
             var artistGalleryViewModel = (ArtistGalleryViewModel)TempData["categories"] ?? new ArtistGalleryViewModel()
                                                                 {
                                                                     Pictures = (PictureEditorController.GetImagesFromDbMin(artist, theme)),
-                                                                    Artist = artist,
+                                                                    Artist = artist
                                                                 };
 
-            if (artistGalleryViewModel.Categories != null && theme!=null)
+            artistGalleryViewModel.Theme = theme;
+
+            if (artistGalleryViewModel.Categories != null && theme != null)
                 artistGalleryViewModel.Pictures = artistGalleryViewModel.Categories.FirstOrDefault(x => x.Key.ToLower() == theme).Value;
-         
+
             return View(artistGalleryViewModel);
         }
 
-        public ViewResult ArtistGallery2(long userId)
+   
+        public ViewResult ArtistThemes(long userId)
         {
             var artist = Helpers.Helpers.GetUserForId(userId, _db);
             var artistId = artist != null ? artist.UserId : 0;

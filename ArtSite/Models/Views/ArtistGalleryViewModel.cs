@@ -7,5 +7,6 @@ namespace ArtSite.Models.Views
         public List<PictureItemNoBufferData> Pictures { get; set; }
         public Dictionary<string, List<PictureItemNoBufferData>> Categories { get; set; }
         public LogOnModel Artist { get; set; }
+        public string Theme { get; set; }
     }
 }
