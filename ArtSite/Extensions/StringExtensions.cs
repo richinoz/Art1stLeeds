@@ -8,5 +8,10 @@ namespace ArtSite.Extensions
          {
              return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text);
          }
+
+         public static bool IsNullOrWhiteSpace(this string text)
+         {
+             return string.IsNullOrWhiteSpace(text);
+         }
     }
 }

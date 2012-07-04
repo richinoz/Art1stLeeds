@@ -108,7 +108,7 @@ namespace ArtSite.Controllers
             ViewBag.Menu = "_ArtistHome";
 
             if (theme == "other")
-                theme = null;
+                theme = String.Empty;
 
             var artistGalleryViewModel = new ArtistGalleryViewModel
                                              {

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ArtSite.DataAccess;
+using ArtSite.Extensions;
 using ArtSite.Models;
 using ArtSite.Models.Views;
 
@@ -220,7 +221,7 @@ namespace ArtSite.Controllers
                 var model = pictureDal.Enitities.Where(x => x.UserId == userId);
 
                 if (theme != null)
-                    model = model.Where(x => x.Theme.ToLower().Contains(theme.ToLower()));
+                    model = theme==string.Empty ? model.Where(x => x.Theme.IsNullOrWhiteSpace()) : model.Where(x => x.Theme.ToLower().Contains(theme.ToLower()));
 
                 var query = from c in model
                             select new PictureItemNoBufferData()
