@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ArtSite.DataAccess;
+using ArtSite.Extensions;
 using ArtSite.Models;
 using ArtSite.Models.Views;
 
@@ -98,7 +99,7 @@ namespace ArtSite.Controllers
 
             string themeVal = null;
             if (theme!=null)
-                themeVal = " - " + theme;
+                themeVal = " - " + theme.ToTitleCase();
             
             ViewBag.ArtistId = artistId;
             ViewBag.ArtistName = name;
@@ -106,14 +107,16 @@ namespace ArtSite.Controllers
             ViewBag.Model = artist;
             ViewBag.Menu = "_ArtistHome";
 
+            if (theme == "other")
+                theme = null;
 
-            var artistGalleryViewModel = (ArtistGalleryViewModel)TempData["categories"] ?? new ArtistGalleryViewModel()
-                                                                {
-                                                                    Pictures = (PictureEditorController.GetImagesFromDbMin(artist, theme)),
-                                                                    Artist = artist
-                                                                };
+            var artistGalleryViewModel = new ArtistGalleryViewModel
+                                             {
+                                                 Pictures = (PictureEditorController.GetImagesFromDbMin(artist, theme)),
+                                                 Artist = artist,
+                                                 Theme = theme
+                                             };
 
-            artistGalleryViewModel.Theme = theme;
 
             if (artistGalleryViewModel.Categories != null && theme != null)
                 artistGalleryViewModel.Pictures = artistGalleryViewModel.Categories.FirstOrDefault(x => x.Key.ToLower() == theme).Value;
@@ -144,15 +147,13 @@ namespace ArtSite.Controllers
 
             foreach (var picture in artistGalleryViewModel.Pictures)
             {
-                var theme = string.IsNullOrWhiteSpace(picture.Theme) ? "other" : picture.Theme;
+                var theme = string.IsNullOrWhiteSpace(picture.Theme) ? "other" : picture.Theme.ToTitleCase().Trim();
 
                 if (!artistGalleryViewModel.Categories.ContainsKey(theme))
                     artistGalleryViewModel.Categories.Add(theme, new List<PictureItemNoBufferData>());
 
                 artistGalleryViewModel.Categories[theme].Add(picture);
             }
-
-            TempData["categories"] = artistGalleryViewModel;
 
             return View(artistGalleryViewModel);
         }

@@ -53,11 +53,12 @@
               
         <div class="box">
            
-            <a href="../@Model.Artist.UserName/@category.Key" title="@title">
+             @{ var url = string.Format("../{0}/{1}", @Model.Artist.UserName, ( @category.Key));}
+            <a href="@url" title="@title">
                 <img alt="pic" src="@pathSmallImage" title="@title" onError="this.src='../../images/error.jpg'" /></a>            
             @{ var smallTitle = string.Format("{0}", @title); }
 
-            <h1 class="artTitle">@smallTitle</h1>
+            <h1 class="artTitleTheme">@smallTitle</h1>
         </div>
      
             

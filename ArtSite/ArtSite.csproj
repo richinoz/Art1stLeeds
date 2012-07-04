@@ -102,6 +102,7 @@
     <Compile Include="DataAccess\IUserDal.cs" />
     <Compile Include="DataAccess\IDAL.cs" />
     <Compile Include="EMail.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Filters\CondtionalFilterPRovider.cs" />
     <Compile Include="Filters\MyFilter.cs" />
     <Compile Include="Gallerific.aspx.cs">

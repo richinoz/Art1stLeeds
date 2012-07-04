@@ -220,7 +220,7 @@ namespace ArtSite.Controllers
                 var model = pictureDal.Enitities.Where(x => x.UserId == userId);
 
                 if (theme != null)
-                    model = model.Where(x => x.Theme.ToLower().Contains(theme));
+                    model = model.Where(x => x.Theme.ToLower().Contains(theme.ToLower()));
 
                 var query = from c in model
                             select new PictureItemNoBufferData()
