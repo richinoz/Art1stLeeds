@@ -14,7 +14,7 @@ echo zipped!
 
 echo uploading...
 
-upload Art1stleeds.zip richinoz
+upload Art1stleeds.zip art1stleeds
 rem upload "C:\Users\rich\Documents\Visual Studio 2010\Projects\ArtSite\ArtSite\art1stleeds.zip"
 
 

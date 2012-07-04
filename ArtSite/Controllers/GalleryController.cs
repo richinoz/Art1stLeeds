@@ -130,9 +130,10 @@ namespace ArtSite.Controllers
 
             ViewBag.ArtistId = artistId;
             ViewBag.ArtistName = name;
-            ViewBag.Title = name;
+            ViewBag.Title = string.Format("{0} - {1}", name, "Themes");
             ViewBag.Model = artist;
             ViewBag.Menu = "_ArtistHome";
+
 
             var artistGalleryViewModel = new ArtistGalleryViewModel()
             {
