@@ -27,7 +27,7 @@ namespace ArtSite.Controllers
         {
             _db = new ArtGalleryDBContext();
 
-            if(pictureDal==null)
+            if (pictureDal == null)
                 pictureDal = new PictureDal(_db);
 
             if (userDal == null)
@@ -55,9 +55,9 @@ namespace ArtSite.Controllers
         public ActionResult Searching(string name)
         {
             string tempname = (string)TempData["PictureDBSearch"];
-            if(name!=null)
+            if (name != null)
                 TempData["PictureDBSearch"] = name;
-            else            
+            else
                 name = tempname;
 
             if (Request.IsAjaxRequest())
@@ -66,8 +66,8 @@ namespace ArtSite.Controllers
             if (name == "")
                 name = "blanksearch";
 
-            return RedirectToAction("Index", new {name});
-          
+            return RedirectToAction("Index", new { name });
+
         }
         //
         // GET: /PictureLoaderDB/Details/5
@@ -84,7 +84,7 @@ namespace ArtSite.Controllers
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /PictureLoaderDB/Create
@@ -96,15 +96,15 @@ namespace ArtSite.Controllers
             {
                 _pictureDal.Enitities.Add(pictureitem);
                 _pictureDal.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             return View(pictureitem);
         }
-        
+
         //
         // GET: /PictureLoaderDB/Edit/5
-    
+
         public ActionResult Edit(int id, string returnUrl)
         {
             if (!Request.IsAuthenticated)
@@ -131,13 +131,13 @@ namespace ArtSite.Controllers
         // POST: /PictureLoaderDB/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(EditPictureViewModel editPictureTtem)  
+        public ActionResult Edit(EditPictureViewModel editPictureTtem)
         {
             var pictureitem = editPictureTtem.Picture;
             if (ModelState.IsValid)
             {
                 var pic = pictureitem;
-               
+
                 _pictureDal.Enitities.Attach(pic);
 
                 _pictureDal.Entry(pic).Property(x => x.Artist).IsModified = true;
@@ -158,10 +158,10 @@ namespace ArtSite.Controllers
             return View(pictureitem);
         }
 
-    
+
         //
         // GET: /PictureLoaderDB/Delete/5
- 
+
         public ActionResult Delete(int id, string returnUrl)
         {
             PictureItem pictureitem = _pictureDal.Enitities.Find(id);
@@ -173,7 +173,7 @@ namespace ArtSite.Controllers
 
             return View(editPictureViewModel);
         }
-   
+
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(EditPictureViewModel editPictureViewModel)
@@ -181,7 +181,7 @@ namespace ArtSite.Controllers
             int id = editPictureViewModel.Picture.ID;
             if (User.Identity.IsAuthenticated)
             {
-                var hasPermission =  Permissions.HasPermission(User.Identity.Name);
+                var hasPermission = Permissions.HasPermission(User.Identity.Name);
                 LogOnModel currentUser = Permissions.GetCurrentUser(_userDal, User);// UserDal.AllUsers.FirstOrDefault(x => x.UserName == User.Identity.Name) ?? _userDal.Enitities.FirstOrDefault(x => x.UserName == User.Identity.Name);
 
                 PictureItem pictureitem = _pictureDal.Enitities.Find(id);
@@ -194,8 +194,8 @@ namespace ArtSite.Controllers
                     _pictureDal.Enitities.Remove(pictureitem);
                     _db.SaveChanges();
 
-                    if (editPictureViewModel.ReturnUrl!=null)
-                        return Redirect(editPictureViewModel.ReturnUrl); 
+                    if (editPictureViewModel.ReturnUrl != null)
+                        return Redirect(editPictureViewModel.ReturnUrl);
 
                     return RedirectToAction("Searching");
                 }
@@ -221,7 +221,7 @@ namespace ArtSite.Controllers
                 var model = pictureDal.Enitities.Where(x => x.UserId == userId);
 
                 if (theme != null)
-                    model = theme==string.Empty ? model.Where(x => x.Theme.IsNullOrWhiteSpace()) : model.Where(x => x.Theme.ToLower().Contains(theme.ToLower()));
+                    model = theme == string.Empty ? model.Where(x => x.Theme == string.Empty || x.Theme == null) : model.Where(x => x.Theme.ToLower().Contains(theme.ToLower()));
 
                 var query = from c in model
                             select new PictureItemNoBufferData()
@@ -284,26 +284,25 @@ namespace ArtSite.Controllers
                                    Theme = p.Theme,
                                    Title = p.Title,
                                    UserId = p.UserId,
-                                   DisplayOrder = p.DisplayOrder 
+                                   DisplayOrder = p.DisplayOrder
                                };
 
                 var ret = selected.ToList();
 
-                List<LandingPageItemViewModel>  list2 = new List<LandingPageItemViewModel>();
+                List<LandingPageItemViewModel> list2 = new List<LandingPageItemViewModel>();
                 foreach (var landingPageItem in fullList)
                 {
-                    var pictureItemNoBufferData = ret.FirstOrDefault(x=>x.ID == landingPageItem.PictureId);
-                    if (pictureItemNoBufferData==null)
+                    var pictureItemNoBufferData = ret.FirstOrDefault(x => x.ID == landingPageItem.PictureId);
+                    if (pictureItemNoBufferData == null)
                     {
                         //LogOnModel logOnModel = Permissions.GetCurrentUser();
                         //if(logOnModel!=null)
                         {
-                            pictureItemNoBufferData = new PictureItemNoBufferData()
-                                                          {UserId = 1};
+                            pictureItemNoBufferData = new PictureItemNoBufferData() { UserId = 1 };
                         }
-                      
+
                     }
-                    if (pictureItemNoBufferData!=null)
+                    if (pictureItemNoBufferData != null)
                     {
                         var landingPageItemViewModel = new LandingPageItemViewModel()
                                                            {
@@ -342,62 +341,62 @@ namespace ArtSite.Controllers
                             Theme = c.Theme,
                             Title = c.Title,
                             UserId = c.UserId,
-                            DisplayOrder = c.DisplayOrder 
+                            DisplayOrder = c.DisplayOrder
 
                         };
 
 
-                return query.OrderBy(x=>x.DisplayOrder ?? 9999).ToList();
+                return query.OrderBy(x => x.DisplayOrder ?? 9999).ToList();
 
             }
 
         }
 
-       
 
 
-        private static IQueryable<PictureItem> GetImagesQuery(ArtGalleryDBContext db, string searchName) 
+
+        private static IQueryable<PictureItem> GetImagesQuery(ArtGalleryDBContext db, string searchName)
         {
-           
-                var pictureDal = new PictureDal(db);
 
-                bool except = false;
+            var pictureDal = new PictureDal(db);
 
-                if (String.IsNullOrEmpty(searchName))
-                    searchName = string.Empty;
+            bool except = false;
 
-                if (searchName.Length > 0 && searchName.Substring(0, 1) == "!")
+            if (String.IsNullOrEmpty(searchName))
+                searchName = string.Empty;
+
+            if (searchName.Length > 0 && searchName.Substring(0, 1) == "!")
+            {
+                searchName = searchName.Substring(1);
+                except = true;
+            }
+
+            IQueryable<PictureItem> query = null;
+
+            if (searchName.ToLower() == "anon")
+                query =
+                    pictureDal.Enitities.Where(x => (x.Artist == null) || (x.Artist.ToLower() == "anon"));
+
+            if (searchName.ToLower() == "untitled")
+                query =
+                    pictureDal.Enitities.Where(x => (x.Title == null) || (x.Title.ToLower() == "untitled"));
+
+            if (query == null)
+                if (searchName != string.Empty)
                 {
-                    searchName = searchName.Substring(1);
-                    except = true;
+                    searchName = searchName.ToLower();
+
+                    query = pictureDal.Enitities.Where(x => (x.Title != null && x.Title.ToLower().Contains(searchName)) ||
+                                                   (x.Artist != null && x.Artist.ToLower().Contains(searchName)) ||
+                                                   (x.Media != null && x.Media.ToLower().Contains(searchName)) ||
+                                                   (x.Theme != null && x.Theme.ToLower().Contains(searchName)));
                 }
-
-                IQueryable<PictureItem> query = null;
-
-                if (searchName.ToLower() == "anon")
-                    query =
-                        pictureDal.Enitities.Where(x => (x.Artist == null) || (x.Artist.ToLower() == "anon"));
-
-                if (searchName.ToLower() == "untitled")
-                    query =
-                        pictureDal.Enitities.Where(x => (x.Title == null) || (x.Title.ToLower() == "untitled"));
-
-                if (query == null)
-                    if (searchName != string.Empty)
-                    {
-                        searchName = searchName.ToLower();
-
-                        query = pictureDal.Enitities.Where(x => (x.Title != null && x.Title.ToLower().Contains(searchName)) ||
-                                                       (x.Artist != null && x.Artist.ToLower().Contains(searchName)) ||
-                                                       (x.Media != null && x.Media.ToLower().Contains(searchName)) ||
-                                                       (x.Theme != null && x.Theme.ToLower().Contains(searchName)));
-                    }
-                    else
-                        query = pictureDal.Enitities;
+                else
+                    query = pictureDal.Enitities;
 
 
-                if (except)
-                    return pictureDal.Enitities.Except(query);
+            if (except)
+                return pictureDal.Enitities.Except(query);
 
             return query;
 
