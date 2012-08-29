@@ -233,13 +233,13 @@ namespace ArtSite.Controllers
 
                     var emailSender = new EMail();
 
-                    var body = string.Format("username is:{0}\r\npassword is:{1}", currentUser.UserName, password);
+                    var body = string.Format("username is:{0}\r\npassword is: {1}", currentUser.UserName, password);
 
                     var mailMessage = new MailMessage("noreply@artsite.com", currentUser.Email, "ArtSite details",
                                                               body);
                     var result = emailSender.SendEmailAsync(mailMessage);
 
-                    return RedirectToAction("PassWordSent", new { emailAddress = logOnModel.Email });
+                    return RedirectToAction("PassWordSent", new { emailAddress = currentUser.Email });
 
 
                 }
