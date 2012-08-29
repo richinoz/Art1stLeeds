@@ -121,7 +121,7 @@ namespace ArtSite.Controllers
 
                 ModelState.AddModelError("", ErrorCodeToString(createStatus));
 
-          
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -226,27 +226,24 @@ namespace ArtSite.Controllers
             //var users = _userDal.Enitities;
             //var user = users.Where(x => x.Email.ToLower() == eMail.ToLower()).ToList();
 
-            var currentUserName = Membership.GetUserNameByEmail(logOnModel.Email);
+            var currentUser = Membership.GetUser(logOnModel.UserName);
 
 
-            if (currentUserName != null)
+            if (currentUser != null)
             {
-                var currentUser = Membership.GetUser(currentUserName);
 
-                if (currentUser != null)
-                {
-                    var password = currentUser.ResetPassword();
+                var password = currentUser.ResetPassword();
 
-                    var emailSender = new EMail();
+                var emailSender = new EMail();
 
-                    string body = string.Format("username is:{0}\r\npassword is:{1}", currentUser.UserName, password);
+                string body = string.Format("username is:{0}\r\npassword is:{1}", currentUser.UserName, password);
 
-                    MailMessage mailMessage = new MailMessage("noreply@artsite.com", logOnModel.Email, "ArtSite details",
-                                                              body);
-                    var result = emailSender.SendEmailAsync(mailMessage);
+                MailMessage mailMessage = new MailMessage("noreply@artsite.com", logOnModel.Email, "ArtSite details",
+                                                          body);
+                var result = emailSender.SendEmailAsync(mailMessage);
 
-                    return RedirectToAction("PassWordSent", new { emailAddress = logOnModel.Email });
-                }
+                return RedirectToAction("PassWordSent", new { emailAddress = logOnModel.Email });
+
 
             }
             else

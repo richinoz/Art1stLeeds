@@ -101,6 +101,7 @@
     <Compile Include="DataAccess\IBlogPostDal.cs" />
     <Compile Include="DataAccess\IUserDal.cs" />
     <Compile Include="DataAccess\IDAL.cs" />
+    <Compile Include="DataAccess\LogOnModelEntityTypeConfiguration.cs" />
     <Compile Include="EMail.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Filters\CondtionalFilterPRovider.cs" />

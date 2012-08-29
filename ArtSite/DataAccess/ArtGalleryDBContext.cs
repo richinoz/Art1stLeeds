@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -32,10 +33,10 @@ namespace ArtSite.DataAccess
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {                       
             modelBuilder.Conventions.Remove<IncludeMetadataConvention>();
+
+            //modelBuilder.Configurations.Add(new LogOnModelEntityTypeConfiguration());
             base.OnModelCreating(modelBuilder);                        
         }
-       
      
     }
-
 }
