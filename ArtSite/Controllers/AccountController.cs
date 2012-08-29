@@ -121,7 +121,7 @@ namespace ArtSite.Controllers
 
                 ModelState.AddModelError("", ErrorCodeToString(createStatus));
 
-          
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -137,7 +137,7 @@ namespace ArtSite.Controllers
                 Password = "Bogus-exists in AspNet db",
                 Email = email,
                 Permissions = "0",
-                Active = true
+                Active = false
             };
 
             _userDal.Enitities.Add(user);
@@ -221,41 +221,38 @@ namespace ArtSite.Controllers
         [HttpPost]
         public ActionResult ForgottenPassword(LogOnModel logOnModel)
         {
-            //string eMail = logOnModel.Email;
-
-            //var users = _userDal.Enitities;
-            //var user = users.Where(x => x.Email.ToLower() == eMail.ToLower()).ToList();
-
-            var currentUserName = Membership.GetUserNameByEmail(logOnModel.Email);
-
-
-            if (currentUserName != null)
+            try
             {
-                var currentUser = Membership.GetUser(currentUserName);
+
+                var currentUser = Membership.GetUser(logOnModel.UserName);
 
                 if (currentUser != null)
                 {
+                    
                     var password = currentUser.ResetPassword();
 
                     var emailSender = new EMail();
 
-                    string body = string.Format("username is:{0}\r\npassword is:{1}", currentUser.UserName, password);
+                    var body = string.Format("username is:{0}\r\npassword is: {1}", currentUser.UserName, password);
 
-                    MailMessage mailMessage = new MailMessage("noreply@artsite.com", logOnModel.Email, "ArtSite details",
+                    var mailMessage = new MailMessage("noreply@artsite.com", currentUser.Email, "ArtSite details",
                                                               body);
                     var result = emailSender.SendEmailAsync(mailMessage);
 
-                    return RedirectToAction("PassWordSent", new { emailAddress = logOnModel.Email });
+                    return RedirectToAction("PassWordSent", new { emailAddress = currentUser.Email });
+
+
                 }
-
+                else
+                {
+                    ModelState.AddModelError("", string.Format("'{0}' is not registered", logOnModel.Email));                    
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ModelState.AddModelError("", string.Format("'{0}' is not registered", logOnModel.Email));
-                return View();
+                ModelState.AddModelError("", ex.ToString());
+              
             }
-
-            ModelState.AddModelError("", "Failed to send");
             return View();
         }
 
