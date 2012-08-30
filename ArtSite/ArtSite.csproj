@@ -101,6 +101,7 @@
     <Compile Include="DataAccess\IBlogPostDal.cs" />
     <Compile Include="DataAccess\IUserDal.cs" />
     <Compile Include="DataAccess\IDAL.cs" />
+    <Compile Include="DataAccess\LogOnModelEntityTypeConfiguration.cs" />
     <Compile Include="EMail.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Filters\CondtionalFilterPRovider.cs" />
@@ -430,7 +431,6 @@
     <Content Include="shadowbox-3.0.3\previous.png" />
     <Content Include="shadowbox-3.0.3\shadowbox.css" />
     <Content Include="shadowbox-3.0.3\shadowbox.js" />
-    <Content Include="test.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
