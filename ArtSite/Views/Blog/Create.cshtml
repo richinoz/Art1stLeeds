@@ -58,6 +58,7 @@
  
 @using (Html.BeginForm("SavePost", "Blog"))
 {
+  
     <div>
         @Html.HiddenFor(x => x.UserId, Model.UserId)
         @Html.HiddenFor(x=>x.ID)

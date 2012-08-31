@@ -1,4 +1,5 @@
-﻿@model ArtSite.Models.LogOnModel
+﻿
+@model ArtSite.Models.LogOnModel
 
 @{
     ViewBag.Title = "Edit";
@@ -42,32 +43,6 @@
         @Html.HiddenFor(model => model.RememberMe)
 
 
-      @*  <div class="editor-label">
-            @Html.LabelFor(model => model.UserName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UserName)
-            @Html.ValidationMessageFor(model => model.UserName)
-        </div>*@
-
-      @* 
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.RememberMe)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.RememberMe)
-            @Html.ValidationMessageFor(model => model.RememberMe)
-        </div>
-*@
         <div class="editor-label">
             @Html.LabelFor(model => model.Email)
         </div>
@@ -84,9 +59,17 @@
             @Html.ValidationMessageFor(model => model.Telephone)
         </div>
 
+        @if (ArtSite.Permissions.IsAdmin())
+        {
         <div class="editor-label">
             @Html.LabelFor(model => model.Permissions)
         </div>
+        }
+        else
+        {
+            @Html.HiddenFor(x=>x.Permissions)
+        }
+
         <div class="editor-field">
             @Html.EditorFor(model => model.Permissions)
             @Html.ValidationMessageFor(model => model.Permissions)

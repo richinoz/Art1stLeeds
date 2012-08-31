@@ -233,7 +233,7 @@ namespace ArtSite.Controllers
 
                     var emailSender = new EMail();
 
-                    var body = string.Format("username is:{0}\r\npassword is: {1}", currentUser.UserName, password);
+                    var body = string.Format("Hi {0}!\r\nYour new password is {1}", currentUser.UserName, password);
 
                     var mailMessage = new MailMessage("noreply@artsite.com", currentUser.Email, "ArtSite details",
                                                               body);
