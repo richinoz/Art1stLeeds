@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using ArtSite.DataAccess;
 using ArtSite.Models;
 using ArtSite.Models.Views;
+using Ionic.Zip;
 
 namespace ArtSite.Controllers
 {
@@ -23,17 +24,12 @@ namespace ArtSite.Controllers
             return View();
         }
 
-        public ActionResult LandingPageOld()
-        {
-            return View();
-        }
-
         public ViewResult LandingPage()
         {
             return View();
         }
 
-
        
+
     }
 }

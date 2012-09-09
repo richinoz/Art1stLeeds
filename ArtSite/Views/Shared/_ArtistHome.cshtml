@@ -1,4 +1,5 @@
-﻿@using ArtSite.Models
+﻿@using ArtSite.DataAccess
+@using ArtSite.Models
 
 @{
     string artistColour = ViewBag.Model != null ? ViewBag.Model.Colour ?? "#5C87B2" : "#5C87B2";
@@ -30,7 +31,8 @@
             long artistId = ViewBag.Model != null ? ViewBag.Model.UserId : ViewBag.ArtistId;
             
             <li>@Html.ActionLink("Gallery", "ArtistGallery", "Gallery", new {userId = artistId}, null)  </li>
-            <li>@Html.ActionLink("Slideshow", "Galleria", "Gallery", new { artistId= artistId }, null)  </li>
+            <li>@Html.ActionLink("Themes", "ArtistThemes", "Gallery", new { userId = artistId }, null)  </li>
+            <li>@Html.ActionLink("Slideshow", "Galleria", "Gallery", new { artistId = artistId }, null)  </li>
             <li>@Html.ActionLink("Background", "ArtistHome", "Gallery", new { userId = artistId }, null)</li>
             <li>@Html.ActionLink("Contact", "SendEmail", "Email", new { artistId = artistId }, null) </li>
             <li><span class="dir">Artists</span>

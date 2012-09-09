@@ -45,11 +45,12 @@
     @{        
         var userAuthenticated = (Permissions.HasPermission(Model.Artist.UserName) || Permissions.IsAdmin());     
     }
+ 
   <!-- scripts at bottom of page -->
     <div id="container" class="transitions-enabled clearfix">
     @{if (Model != null)
       {
-         
+
           foreach (var item in Model.Pictures)
           {
               var path = "/MyFiles/" + @item.ID + ".jpg";
@@ -59,9 +60,9 @@
               var info = string.Format("'{0}' by '{1}'\nMedia: {2}\nDimensions: {3}\n{4}", @item.Title ?? "Untitled", @item.Artist ?? "anon", @item.Media, @item.Size, @price);
                 <div class="box">
                
-                    @{ if ( userAuthenticated)
+                    @{ if (userAuthenticated)
                        {                           
-                            @Html.ActionLink("Edit", "Edit", "PictureEditor", new {id = item.ID, returnUrl = Request.Url.AbsoluteUri}, new{style="display:block; padding-bottom:5px"})                           
+                            @Html.ActionLink("Edit", "Edit", "PictureEditor", new { id = item.ID, returnUrl = Request.Url.AbsoluteUri }, new { style = "display:block; padding-bottom:5px" })                           
                        }
                      }
                     <a href="@path"rel="shadowbox[groupedresults]" title="@info"><img alt="pic" src="@pathSmallImage" title="@info" onError="this.src='../../images/error.jpg'" 

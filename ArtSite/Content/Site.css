@@ -14,6 +14,7 @@ body {
     margin:20px 0px; padding:0px;
 	text-align:center;
 	
+	
 }
 
 
@@ -102,6 +103,7 @@ body {
 	box-shadow: 10px 10px 5px #888888;
 	color:white;
     padding-top: 10px;
+    border-radius: 5px;
 }
 
 .headingBoxWide
@@ -114,6 +116,7 @@ body {
 	box-shadow: 10px 10px 5px #888888;
 	color:white;
     padding-top: 10px;
+    border-radius: 5px;
 }
 
 

@@ -592,3 +592,10 @@ code .nd { color: #9FAD7E; } /* CSS pseudo selector */
     text-align:center;
     max-width:150px;
 }
+
+.artTitleTheme
+{
+    word-wrap:normal  ;
+    text-align:center;
+    max-width:250px;
+}

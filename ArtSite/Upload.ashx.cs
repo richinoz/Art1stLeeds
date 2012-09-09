@@ -48,10 +48,7 @@ namespace ArtSite
 
                         using (ArtGalleryDBContext db = new ArtGalleryDBContext())
                         {
-                            IUserDal userDal = new UserDal(db);
-                            LogOnModel currentUser = (LogOnModel) context.Session["CurrentUser"] ??
-                                                     userDal.Enitities.FirstOrDefault(x=>x.UserName == context.User.Identity.Name);
-
+                            var currentUser =  UserDal.AllUsers.FirstOrDefault(x => x.UserName == context.User.Identity.Name);
 
                             PictureItem picture = new PictureItem
                                                       {

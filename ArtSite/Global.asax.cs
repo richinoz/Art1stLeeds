@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ArtSite.Controllers;
+using ArtSite.DataAccess;
 using ArtSite.Filters;
 using ArtSite.Models;
 using MvcMiniProfiler;
@@ -18,6 +19,8 @@ namespace ArtSite
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static string Title;
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -47,21 +50,39 @@ namespace ArtSite
             {
                 var userName = user.UserName.Split(' ');
 
-                routes.MapRoute(
-                  user.UserName, // Route name
-                  string.Format("{0}/{{*extra}}", user.UserName) , // URL with parameters
-                  new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
+                //routes.MapRoute(
+                //  user.UserName, // Route name
+                //  string.Format("{0}/{{*extra}}", user.UserName), // URL with parameters
+                //  new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
 
-                if(userName.Count()>1)
+                routes.MapRoute(
+             user.UserName, // Route name
+             string.Format("{0}", user.UserName), // URL with parameters
+             new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
+
+                routes.MapRoute(
+                 user.UserName +"theme", // Route name
+                 string.Format("{0}/{{*theme}}", user.UserName), // URL with parameters
+                 new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
+
+              
+                //this is temporary!
+                routes.MapRoute(
+                  user.UserName + "ArtistThemes", // Route name
+                  string.Format("ArtistThemes/{0}", user.UserName), // URL with parameters
+                  new { controller = "Gallery", action = "ArtistThemes", userId = user.UserId });
+
+
+                if (userName.Count() > 1)
                 {
-                  routes.MapRoute(
-                  userName[0] + "1", // Route name
-                  string.Format("{0}/{{*extra}}", userName[0]), // URL with parameters
-                  new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
+                    routes.MapRoute(
+                    userName[0] + "1", // Route name
+                    string.Format("{0}/{{*extra}}", userName[0]), // URL with parameters
+                    new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
                 }
 
                 routes.MapRoute(
-                  userName[0] + "Galleria"+ user.UserId, // Route name
+                  userName[0] + "Galleria" + user.UserId, // Route name
                   string.Format("SlideShow/{0}", userName[0]), // URL with parameters
                   new { controller = "Gallery", action = "Galleria", artistId = user.UserId });
 
@@ -88,22 +109,29 @@ namespace ArtSite
             );
 
             routes.MapRoute(
+               "Download", // Route name
+               "Download/{fileName}", // URL with parameters
+               new { controller = "Download", action = "Index", fileName = UrlParameter.Optional } // Parameter defaults
+           );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "LandingPage", id = UrlParameter.Optional } // Parameter defaults
             );
 
-           
+
 
         }
 
         protected void Application_Start()
         {
+
             AreaRegistration.RegisterAllAreas();
 
             //Database.SetInitializer<ArtGalleryDBContext>(new RecreateDatabaseIfModelChanges<ArtGalleryDBContext>());
 
-           // RegisterCustomFilters();
+            // RegisterCustomFilters();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
@@ -113,7 +141,7 @@ namespace ArtSite
             log4net.Config.XmlConfigurator.Configure();
 
             Logger.Info("start application", null);
-        }     
+        }
 
         void Application_Error(object sender, EventArgs e)
         {
@@ -142,11 +170,11 @@ namespace ArtSite
             Response.Write("<h2>Global Page Error</h2>\n");
             Response.Write(
                 "<p>" + exc.Message + "</p>\n");
-            Response.Write(string.Format("Return to the <a href='/Home/Index'>" + "Default Page</a>\n")); 
+            Response.Write(string.Format("Return to the <a href='/Home/Index'>" + "Default Page</a>\n"));
 
             // Log the exception and notify system operators
             Logger.Error("DefaultPage", exc);
-           // Logger.NotifySystemOps(exc);
+            // Logger.NotifySystemOps(exc);
 
             // Clear the error from the server
             Server.ClearError();
@@ -156,6 +184,27 @@ namespace ArtSite
         protected void Session_Start()
         {
             HitCounter.IncrementHitCounter();
+        }
+
+
+        public static string AppTitle
+        {
+            get
+            {
+                if (Title == null)
+                {
+                    try
+                    {
+                        Title = System.Configuration.ConfigurationManager.AppSettings["Title"];
+                    }
+                    catch 
+                    {
+                    }
+                    
+                }
+
+                return Title;
+            }
         }
     }
 }
