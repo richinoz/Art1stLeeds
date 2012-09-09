@@ -58,6 +58,7 @@ namespace ArtSite.Controllers
                 mobilePost.UserId = (int)user.UserId;
             }
             ViewBag.HeaderString = "Create New Post";
+
             return View("Create", mobilePost);
         }
  
