@@ -1,0 +1,84 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="public" priority="2" />
+      <Item value="class" priority="0" />
+      <Item value="override" priority="0" />
+      <Item value="modelBuilder" priority="0" />
+      <Item value="new" priority="0" />
+      <Item value="LogOnModelEntityTypeConfiguration`0" priority="0" />
+      <Item value="try" priority="0" />
+      <Item value="ex" priority="0" />
+      <Item value="false" priority="0" />
+      <Item value="Membership`0" priority="0" />
+      <Item value="ViewBag" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ArtSite.Models.LogOnModel">
+      <Item value="UserId" priority="0" />
+      <Item value="UserName" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.Entity.DbModelBuilder">
+      <Item value="Configurations" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.Entity.ModelConfiguration.Configuration.ConfigurationRegistrar">
+      <Item value="Add`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Security.Membership">
+      <Item value="GetUser`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="9E379692-A0EE-442B-AFC4-01686FB31C36/f:EmailTests.cs" caret="273" fromTop="12" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Account/f:PasswordSent.cshtml" caret="34" fromTop="1" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Web.config" caret="698" fromTop="17" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Account/f:LogOn.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/f:AccountModels.cs" caret="406" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Details.cshtml" caret="287" fromTop="15" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Delete.cshtml" caret="415" fromTop="18" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Account/f:ChangePassword.cshtml" caret="820" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Helpers/f:Helpers.cs" caret="348" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:DataAccess/f:IUserDal.cs" caret="135" fromTop="5" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:BlogController.cs" caret="1758" fromTop="16" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Permissions.cs" caret="339" fromTop="16" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Blog/f:Create.cshtml" caret="1569" fromTop="6" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Edit.cshtml" caret="1822" fromTop="8" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Account/f:ForgottenPassword.cshtml" caret="602" fromTop="18" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="7172" fromTop="26" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="652" fromTop="18" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Account/f:PasswordSent.cshtml" caret="34" fromTop="1" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Details.cshtml" caret="287" fromTop="15" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Delete.cshtml" caret="333" fromTop="16" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Blog/f:Create.cshtml" caret="1569" fromTop="6" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:BlogController.cs" caret="1760" fromTop="17" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Edit.cshtml" caret="1411" fromTop="1" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Edit.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Edit.cshtml" caret="2017" fromTop="20" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Edit.cshtml" caret="2221" fromTop="23" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="7172" fromTop="26" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
