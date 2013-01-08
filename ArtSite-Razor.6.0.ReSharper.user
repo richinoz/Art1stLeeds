@@ -1,68 +1,16 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Content/f:Site.css" caret="2143" fromTop="28" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Web.config" caret="3571" fromTop="16" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Filters/f:MyFilter.cs" caret="602" fromTop="17" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="516" fromTop="10" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Permissions.cs" caret="339" fromTop="13" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_ArtistHome.cshtml" caret="1216" fromTop="21" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:LandingPage.cshtml" caret="0" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:HomeController.cs" caret="684" fromTop="35" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="1582" fromTop="9" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="7343" fromTop="12" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Upload.ashx.cs" caret="2911" fromTop="24" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:DataAccess/f:IDAL.cs" caret="968" fromTop="19" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="1451" fromTop="1" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Global.asax.cs" caret="2225" fromTop="13" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="1129" fromTop="27" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/d:Views/f:ArtistGalleryViewModel.cs" caret="336" fromTop="10" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Helpers/f:Helpers.cs" caret="461" fromTop="14" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery.cshtml" caret="1842" fromTop="15" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistHome.cshtml" caret="0" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_Layout.cshtml" caret="0" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:News/f:Index.cshtml" caret="0" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_Layout_wide.cshtml" caret="0" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:DownloadController.cs" caret="580" fromTop="22" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Uploader/f:AllLoadersWidget.cshtml" caret="0" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Uploader/f:Index.cshtml" caret="0" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Shared/f:_MainMenu.cshtml" caret="0" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:UploaderController.cs" caret="970" fromTop="19" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="266" fromTop="14" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Email/f:SendEmail.cshtml" caret="2100" fromTop="29" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:GalleryController.cs" caret="2928" fromTop="17" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="6605" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="2304" fromTop="16" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="705" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Global.asax.cs" caret="5117" fromTop="29" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:LandingPage.cshtml" caret="498" fromTop="13" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="231" fromTop="10" />
     </RecentFiles>
     <RecentEdits>
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="4217" fromTop="16" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="3905" fromTop="8" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery.cshtml" caret="1842" fromTop="16" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Models/d:Views/f:ArtistGalleryViewModel.cs" caret="264" fromTop="7" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:GalleryController.cs" caret="5186" fromTop="16" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:GalleryController.cs" caret="4237" fromTop="12" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="2322" fromTop="8" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="2322" fromTop="13" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="2322" fromTop="9" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="1874" fromTop="10" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="2296" fromTop="28" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="1834" fromTop="13" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="2152" fromTop="22" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="1548" fromTop="12" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="2240" fromTop="17" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="1346" fromTop="7" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="6867" fromTop="4" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="6867" fromTop="5" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="8221" fromTop="29" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="7425" fromTop="21" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="6904" fromTop="3" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:GalleryController.cs" caret="5500" fromTop="19" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:GalleryController.cs" caret="4132" fromTop="17" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:GalleryController.cs" caret="2995" fromTop="7" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:GalleryController.cs" caret="3982" fromTop="23" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery2.cshtml" caret="1936" fromTop="13" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Global.asax.cs" caret="2565" fromTop="16" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Global.asax.cs" caret="2567" fromTop="15" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:GalleryController.cs" caret="3749" fromTop="14" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Global.asax.cs" caret="2225" fromTop="13" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="231" fromTop="12" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="56" fromTop="4" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>

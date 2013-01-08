@@ -3,17 +3,9 @@
     ViewBag.Title = "About Us";
 }
 
-<div style="margin: auto; width:600px;">
-   
-    <p>
-       
-
     @Html.Partial("LandingPage")
 
       @{         
              var h = HitCounter.GetHits(); ;
             <span>this site has been hit <b>[@h]</b> times</span>
     }
-    </p>
-</div>
-
