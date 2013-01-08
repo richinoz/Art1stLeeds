@@ -39,23 +39,25 @@
               var pathSmallImage = "/MyFiles/" + @item.Picture.ID + "_s.jpg";
               //var artisthome = "../Gallery/ArtistGallery?userId=" + @item.Picture.UserId; 
               var artist = UserDal.AllUsers.FirstOrDefault(x=>x.UserId==@item.Picture.UserId);
-              
-              var artisthome =  artist.UserName; 
-              
-                <div class="box">
+              string artisthome = "";
+              if(artist!=null)
+              {
+                  artisthome = artist.UserName;
+              }
+
+              <div class="box">
                
-                    @{ if ( userAuthenticated)
-                       {                           
-                            @Html.ActionLink("Edit", "LandingPagePictureChooser", "Gallery", new {landPageItemId = @item.LandingPageItemId, returnUrl = Request.Url.AbsoluteUri}, new{style="display:block; padding-bottom:5px"})                           
-                       }
-                       
-                     }
+                      @{ if (userAuthenticated)
+                         {
+                             @Html.ActionLink("Edit", "LandingPagePictureChooser", "Gallery", new {landPageItemId = @item.LandingPageItemId, returnUrl = Request.Url.AbsoluteUri}, new {style = "display:block; padding-bottom:5px"})
+                         } }
                      
-                    <a href="@artisthome" ><img alt="pic" src="@pathSmallImage" title="" onError="this.src='../../images/error.jpg'" 
-                            /></a>
+                      <a href="@artisthome" ><img alt="pic" src="@pathSmallImage" title="" onError="this.src='../../images/error.jpg'" 
+                                                 /></a>
                         
-                </div>
-                
+                  </div>
+              
+
           }
                    
       }   
