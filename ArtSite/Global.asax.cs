@@ -104,7 +104,7 @@ namespace ArtSite
 
             routes.MapRoute(
               "Home", // Route name
-              "Home/{action}/{*id}", // URL with parameters
+              "Home/{action}", // URL with parameters
               new { controller = "Home", action = "Index" } // Parameter defaults
             );
 
