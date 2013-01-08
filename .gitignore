@@ -1,4 +1,14 @@
 
+<<<<<<< HEAD
+/ArtSite/bin
+/ArtSite.Tests/bin
+/ArtSite.Tests/bin/Debug
+/ArtSite.Tests/obj
+/_ReSharper.ArtSite-Razor
+/ArtSite/Art1stLeeds.zip
+/ArtSite/MyFiles
+/ArtSite/obj
+=======
 bin
 obj
 _ReSharper.ArtSite-Razor
@@ -12,3 +22,4 @@ _ReSharper.ArtSite-Razor
 /ArtSite/MyFiles
 /ArtSite-Razor.sln.docstates.suo
 /ArtSite.Tests/obj
+>>>>>>> 219e5d138da52982ac9142bd95e86e69f4747cc9
