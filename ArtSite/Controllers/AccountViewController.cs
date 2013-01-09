@@ -13,7 +13,7 @@ using ArtSite.DataAccess;
 
 namespace ArtSite.Controllers
 {
-    
+    [Authorize]
     public class AccountViewController : Controller
     {
         private ArtGalleryDBContext db = new ArtGalleryDBContext();
