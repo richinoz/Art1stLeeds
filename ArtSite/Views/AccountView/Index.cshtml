@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ArtSite.Models.LogOnModel>
+﻿@using ArtSite
+@model IEnumerable<ArtSite.Models.LogOnModel>
 
 @{
     ViewBag.Title = "Account";
@@ -21,8 +22,9 @@
       
         <th></th>
     </tr>
-
+    
 @foreach (var item in Model) {
+    
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.UserName)
@@ -31,8 +33,8 @@
    
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+            @Html.ActionLink("Details", "Details", new { id=item.UserId }) | @if(@Permissions.IsAdmin()){
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })}
         </td>
     </tr>
 }

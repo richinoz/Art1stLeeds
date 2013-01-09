@@ -54,9 +54,7 @@ namespace ArtSite
                 
             if (currentUser != null && currentUser.Permissions!=null)
             {
-                if(currentUser.Permissions.Contains("1"))
-                    return true;
-
+                
                 if (currentUser.Permissions.Contains(permissions.Values))
                     return true;
             }

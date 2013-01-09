@@ -13,18 +13,13 @@ using ArtSite.DataAccess;
 
 namespace ArtSite.Controllers
 {
-    [AdminPermissions]
-    public class AccountViewController : Controller, IPermissions
+    
+    public class AccountViewController : Controller
     {
         private ArtGalleryDBContext db = new ArtGalleryDBContext();
 
-        public string Values
-        {
-            get { return "1"; }
-        }
-        //
+        
         // GET: /AccountView/
-
         public ActionResult Index()
         {
             if(Permissions.IsAdmin())
@@ -47,8 +42,7 @@ namespace ArtSite.Controllers
 
        
         //
-        // GET: /AccountView/Details/5
-
+        // GET: /AccountView/Details/5        
         public ViewResult Details(long id)
         {
             LogOnModel logonmodel = db.Users.Find(id);
@@ -57,16 +51,15 @@ namespace ArtSite.Controllers
 
         //
         // GET: /AccountView/Create
-
+        [AdminPermissions]
         public ActionResult Create()
         {
             return View();
         } 
 
         //
-        // POST: /AccountView/Create
-
-        [HttpPost]
+        // POST: /AccountView/Create        
+        [HttpPost, AdminPermissions]
         public ActionResult Create(LogOnModel logonmodel)
         {
             if (ModelState.IsValid)
@@ -80,8 +73,7 @@ namespace ArtSite.Controllers
         }
         
         //
-        // GET: /AccountView/Edit/5
- 
+        // GET: /AccountView/Edit/5       
         public ActionResult Edit(long id)
         {
             LogOnModel logonmodel = db.Users.Find(id);
@@ -90,7 +82,7 @@ namespace ArtSite.Controllers
 
         //
         // POST: /AccountView/Edit/5
-
+    
         [HttpPost]
         public ActionResult Edit(LogOnModel logonmodel)
         {         
@@ -111,7 +103,7 @@ namespace ArtSite.Controllers
 
         //
         // GET: /AccountView/Delete/5
- 
+        [AdminPermissions]
         public ActionResult Delete(long id)
         {
             LogOnModel logonmodel = db.Users.Find(id);
@@ -121,7 +113,7 @@ namespace ArtSite.Controllers
         //
         // POST: /AccountView/Delete/5
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete"), AdminPermissions]
         public ActionResult DeleteConfirmed(long id)
         {
          

@@ -3,14 +3,18 @@
     <RecentFiles>
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="6605" fromTop="0" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="2304" fromTop="16" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="705" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Global.asax.cs" caret="5117" fromTop="29" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:LandingPage.cshtml" caret="498" fromTop="13" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="231" fromTop="10" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Global.asax.cs" caret="5111" fromTop="29" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:LandingPage.cshtml" caret="498" fromTop="13" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistThemes.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="1652" fromTop="9" />
     </RecentFiles>
     <RecentEdits>
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="231" fromTop="12" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="56" fromTop="4" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="2344" fromTop="22" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="1669" fromTop="10" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>
@@ -63,7 +67,7 @@
       <Item value="userName" priority="31" />
       <Item value="Count`1" priority="26" />
       <Item value="User" priority="26" />
-      <Item value="artist" priority="31" />
+      <Item value="artist" priority="63" />
       <Item value="SendEmailByName" priority="27" />
       <Item value="Layout" priority="31" />
       <Item value="SendEmailToRich" priority="27" />
@@ -98,6 +102,7 @@
       <Item value="GetImagesFromDbMin`0" priority="31" />
       <Item value="TempData" priority="63" />
       <Item value="List" priority="32" />
+      <Item value="artisthome" priority="31" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@ArtSite.Logger">
       <Item value="Error`0" priority="26" />
