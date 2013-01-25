@@ -14,6 +14,7 @@
     <AssemblyName>ArtSite</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -105,6 +106,7 @@
     <Compile Include="EMail.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Filters\CondtionalFilterPRovider.cs" />
+    <Compile Include="Filters\EmailAddressAttribute.cs" />
     <Compile Include="Filters\MyFilter.cs" />
     <Compile Include="Gallerific.aspx.cs">
       <DependentUpon>Gallerific.aspx</DependentUpon>
