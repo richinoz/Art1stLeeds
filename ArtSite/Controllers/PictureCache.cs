@@ -13,18 +13,19 @@ namespace ArtSite.Controllers
 {
     public static class PictureCache
     {
+        private static object _lockObj = new object();
 
         static PictureCache()
         {
             Refresh();
         }
 
-     
+
         public static void Refresh()
         {
             string codeBase = Assembly.GetExecutingAssembly().CodeBase;
             UriBuilder uri = new UriBuilder(codeBase);
-            string path = Uri.UnescapeDataString(uri.Path).Replace("/",@"\");
+            string path = Uri.UnescapeDataString(uri.Path).Replace("/", @"\");
 
             path = path.Substring(0, path.LastIndexOf(@"\"));
             path = path.Substring(0, path.LastIndexOf(@"\")) + "\\MyFiles\\";
@@ -33,17 +34,14 @@ namespace ArtSite.Controllers
         }
         public static void Refresh(string filePath, bool deleteFiles = false)
         {
-            try
+            lock (_lockObj)
             {
-
-                System.Web.HttpContext.Current.Application.Lock();
-
                 using (var db = new ArtGalleryDBContext())
                 {
                     var pics = PictureEditorController.GetImagesFromDbMin("");
 
                     IPictureDal pictureDal = new PictureDal(db);
-                  
+
 
                     //delete all disk files
                     if (filePath != null && deleteFiles)
@@ -55,56 +53,64 @@ namespace ArtSite.Controllers
                             File.Delete(file);
                         }
 
-                        
                         //re-write images
                         foreach (var pic in pics)
                         {
-
-                            string fullImagePath = filePath + pic.ID + ".jpg";
-                            string smallImagePath = filePath + pic.ID + "_s.jpg";
-
-                            var picWithData = pictureDal.Enitities.Find(pic.ID);
-                            ImageProcessor.ResizeAndSaveImage(1280, 720, fullImagePath, picWithData.ImageT);
-
-                            var pBuffer = ImageProcessor.CreateThumbnail(fullImagePath, 150, 150, ".jpg");
-                            ImageProcessor.ResizeAndSaveImage(150, 150, smallImagePath, pBuffer);
-
-                        }
-                    }
-                    else
-                    {
-
-                        //re-write images
-                        foreach (var pic in pics)
-                        {
-
-                            string fullImagePath = filePath + pic.ID + ".jpg";
-                            string smallImagePath = filePath + pic.ID + "_s.jpg";
-
-                            if (!File.Exists(fullImagePath))
+                            try
                             {
+                                string fullImagePath = filePath + pic.ID + ".jpg";
+                                string smallImagePath = filePath + pic.ID + "_s.jpg";
+
                                 var picWithData = pictureDal.Enitities.Find(pic.ID);
                                 ImageProcessor.ResizeAndSaveImage(1280, 720, fullImagePath, picWithData.ImageT);
 
                                 var pBuffer = ImageProcessor.CreateThumbnail(fullImagePath, 150, 150, ".jpg");
                                 ImageProcessor.ResizeAndSaveImage(150, 150, smallImagePath, pBuffer);
                             }
+                            catch (Exception ex)
+                            {
+                                Logger.Error("in Refresh cache", ex);
+                            }
 
+                        }
+
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            //re-write images
+                            foreach (var pic in pics)
+                            {
+
+                                string fullImagePath = filePath + pic.ID + ".jpg";
+                                string smallImagePath = filePath + pic.ID + "_s.jpg";
+
+                                if (!File.Exists(fullImagePath))
+                                {
+                                    var picWithData = pictureDal.Enitities.Find(pic.ID);
+                                    ImageProcessor.ResizeAndSaveImage(1280, 720, fullImagePath, picWithData.ImageT);
+
+                                    var pBuffer = ImageProcessor.CreateThumbnail(fullImagePath, 150, 150, ".jpg");
+                                    ImageProcessor.ResizeAndSaveImage(150, 150, smallImagePath, pBuffer);
+                                }
+
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.Error("in Refresh cache", ex);
                         }
                     }
                 }
 
-                System.Web.HttpContext.Current.Application.UnLock();
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("in Refresh cache", ex);                
             }
         }
 
         public static Bitmap GetImage(string path, long screenWidth, long screenHeight, long picId)
         {
-            Bitmap bitmap=null;
+            Bitmap bitmap = null;
             byte[] pBuffer = null;
 
             string fullImagePath = path + ".jpg";
@@ -112,18 +118,18 @@ namespace ArtSite.Controllers
             //only retrieve from db if not on disk
             if (File.Exists(fullImagePath))
             {
-                
+
                 if (File.Exists(smallImagePath))
                 {
                     var img = System.Drawing.Image.FromFile(smallImagePath);
-                    bitmap = new Bitmap(img); 
+                    bitmap = new Bitmap(img);
                 }
                 else
                 {
                     pBuffer = ImageProcessor.CreateThumbnail(fullImagePath, 150, 150, "jpg");
                     ImageProcessor.ResizeAndSaveImage(150, 150, smallImagePath, pBuffer);
                 }
-                
+
             }
             else
             {
@@ -138,9 +144,9 @@ namespace ArtSite.Controllers
             }
 
             // Convert Byte[] to Bitmap
-            if(bitmap==null)
-                bitmap   = ConvertToBitmap(pBuffer);
-           
+            if (bitmap == null)
+                bitmap = ConvertToBitmap(pBuffer);
+
             return bitmap;
         }
 
