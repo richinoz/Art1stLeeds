@@ -67,7 +67,7 @@ namespace ArtSite.Controllers
                         var match = regex.Match(model.LogOnModel.Email);
                         if (match.Success)
                         {
-                            string message = string.Format("Message from {0}\n{1}", model.EmailFrom, model.Message);
+                            string message = string.Format("<p>Message from {0}</p></br>{1}", model.EmailFrom, model.Message);
 
                             eMail.SendEmailAsync(new MailMessage(EMail.UserName, model.LogOnModel.Email,
                                               "Do Not Reply - Art1st site contact from " + model.EmailFrom, message));
@@ -76,7 +76,7 @@ namespace ArtSite.Controllers
                         else
                         {
                             //log message sent
-                            string message = string.Format("{0} /n from {1}", model.Message, model.EmailFrom);
+                            string message = string.Format("{0} \n from {1}", model.Message, model.EmailFrom);
 
                             Logger.Error("Failed to send email to " + model.LogOnModel.UserName, null);
                             EMail.SendEmailToAdministrator("Failed to send email to " + model.LogOnModel.UserName,

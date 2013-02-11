@@ -13,7 +13,7 @@ namespace ArtSite.Controllers
 {
     public static class PictureCache
     {
-        private static readonly object _lockObject = new object();
+        private static object _lockObj = new object();
 
         static PictureCache()
         {
@@ -34,32 +34,30 @@ namespace ArtSite.Controllers
         }
         public static void Refresh(string filePath, bool deleteFiles = false)
         {
-            try
+            lock (_lockObj)
             {
-                lock (_lockObject)
+                using (var db = new ArtGalleryDBContext())
                 {
-                    using (var db = new ArtGalleryDBContext())
+                    var pics = PictureEditorController.GetImagesFromDbMin("");
+
+                    IPictureDal pictureDal = new PictureDal(db);
+
+
+                    //delete all disk files
+                    if (filePath != null && deleteFiles)
                     {
-                        var pics = PictureEditorController.GetImagesFromDbMin("");
 
-                        IPictureDal pictureDal = new PictureDal(db);
-
-
-                        //delete all disk files
-                        if (filePath != null && deleteFiles)
+                        var files = Directory.GetFiles(filePath);
+                        foreach (var file in files)
                         {
+                            File.Delete(file);
+                        }
 
-                            var files = Directory.GetFiles(filePath);
-                            foreach (var file in files)
+                        //re-write images
+                        foreach (var pic in pics)
+                        {
+                            try
                             {
-                                File.Delete(file);
-                            }
-
-
-                            //re-write images
-                            foreach (var pic in pics)
-                            {
-
                                 string fullImagePath = filePath + pic.ID + ".jpg";
                                 string smallImagePath = filePath + pic.ID + "_s.jpg";
 
@@ -68,10 +66,18 @@ namespace ArtSite.Controllers
 
                                 var pBuffer = ImageProcessor.CreateThumbnail(fullImagePath, 150, 150, ".jpg");
                                 ImageProcessor.ResizeAndSaveImage(150, 150, smallImagePath, pBuffer);
-
                             }
+                            catch (Exception ex)
+                            {
+                                Logger.Error("in Refresh cache", ex);
+                            }
+
                         }
-                        else
+
+                    }
+                    else
+                    {
+                        try
                         {
 
                             //re-write images
@@ -92,12 +98,13 @@ namespace ArtSite.Controllers
 
                             }
                         }
+                        catch (Exception ex)
+                        {
+                            Logger.Error("in Refresh cache", ex);
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("in Refresh cache", ex);
+
             }
         }
 

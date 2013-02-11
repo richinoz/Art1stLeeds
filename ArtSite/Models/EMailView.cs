@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using ArtSite.Filters;
 
 namespace ArtSite.Models
 {
@@ -13,8 +14,9 @@ namespace ArtSite.Models
         public string Message { get; set; }
 
         [Required]
+        [EmailAddress]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email address From")]
+        [Display(Name = "Email address from")]
         public string EmailFrom { get; set; }
 
       

@@ -120,6 +120,12 @@ namespace ArtSite.Controllers
      
         public JsonResult RefreshCache()
         {
+            PictureCache.Refresh(Server.MapPath("..\\MyFiles\\"), false);
+            return Json("success");
+        }
+
+        public ActionResult ForceCache()
+        {
             PictureCache.Refresh(Server.MapPath("..\\MyFiles\\"), true);
             return Json("success", JsonRequestBehavior.AllowGet);
         }
