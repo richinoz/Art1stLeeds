@@ -1,13 +1,17 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="6605" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="2304" fromTop="16" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="231" fromTop="10" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Global.asax.cs" caret="5111" fromTop="29" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:LandingPage.cshtml" caret="498" fromTop="13" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistThemes.cshtml" caret="0" fromTop="0" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="1652" fromTop="9" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="6605" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery.cshtml" caret="585" fromTop="17" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:LandingPage.cshtml" caret="498" fromTop="13" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="231" fromTop="10" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="316" fromTop="6" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Permissions.cs" caret="1424" fromTop="35" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Index.cshtml" caret="761" fromTop="19" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Filters/f:MyFilter.cs" caret="356" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="338" fromTop="12" />
     </RecentFiles>
     <RecentEdits>
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="231" fromTop="12" />
@@ -15,11 +19,24 @@
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="0" fromTop="0" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="2344" fromTop="22" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:Index.cshtml" caret="1669" fromTop="10" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Permissions.cs" caret="1791" fromTop="20" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery.cshtml" caret="585" fromTop="17" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="511" fromTop="12" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="3011" fromTop="21" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="3287" fromTop="19" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="1276" fromTop="14" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="1523" fromTop="23" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="1664" fromTop="6" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="2088" fromTop="12" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="2331" fromTop="22" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Index.cshtml" caret="486" fromTop="22" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Index.cshtml" caret="761" fromTop="19" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="338" fromTop="12" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>
     <ItemStatistics item="CSharpCodeCompletionContext">
-      <Item value="if" priority="447" />
+      <Item value="if" priority="477" />
       <Item value="user" priority="255" />
       <Item value="Logger`0" priority="31" />
       <Item value="Membership`0" priority="63" />
@@ -40,7 +57,7 @@
       <Item value="ArtistGallery" priority="60" />
       <Item value="item" priority="63" />
       <Item value="model" priority="189" />
-      <Item value="Model" priority="59" />
+      <Item value="Model" priority="92" />
       <Item value="ret" priority="63" />
       <Item value="null" priority="95" />
       <Item value="return" priority="127" />
@@ -54,7 +71,7 @@
       <Item value="pictureItem" priority="32" />
       <Item value="picture" priority="160" />
       <Item value="static" priority="95" />
-      <Item value="new" priority="128" />
+      <Item value="new" priority="160" />
       <Item value="PictureItemNoBufferData" priority="28" />
       <Item value="p" priority="32" />
       <Item value="orderby" priority="31" />
@@ -103,6 +120,9 @@
       <Item value="TempData" priority="63" />
       <Item value="List" priority="32" />
       <Item value="artisthome" priority="31" />
+      <Item value="AdminPermissions`0" priority="53" />
+      <Item value="EnvironmentVariableTarget`0" priority="29" />
+      <Item value="IsAdmin`0" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@ArtSite.Logger">
       <Item value="Error`0" priority="26" />
@@ -128,6 +148,7 @@
       <Item value="Active" priority="26" />
       <Item value="DisplayName" priority="53" />
       <Item value="UserId" priority="107" />
+      <Item value="Permissions" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Web.Security.MembershipUser">
       <Item value="UserName" priority="26" />
@@ -167,6 +188,8 @@
       <Item value="Html" priority="5" />
       <Item value="title" priority="5" />
       <Item value="category" priority="5" />
+      <Item value="if" priority="9" />
+      <Item value="EnvironmentVariableTarget`0" priority="9" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ArtSite.Models.PictureItemNoBufferData">
       <Item value="DisplayOrder" priority="80" />
@@ -240,6 +263,10 @@
     <ItemStatistics item="Qualified:System.Collections.Generic.KeyValuePair`2">
       <Item value="Value" priority="49" />
       <Item value="Key" priority="72" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ArtSite.Permissions">
+      <Item value="IsAdmin`0" priority="54" />
+      <Item value="HasPermission`0" priority="27" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <NAntValidationSettings>

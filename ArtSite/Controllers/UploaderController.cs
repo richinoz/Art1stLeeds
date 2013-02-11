@@ -109,19 +109,19 @@ namespace ArtSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult RefreshCache(int testParam1)
+        public JsonResult RefreshCache(int testParam1)
         {
             PictureCache.Refresh(Server.MapPath("..\\MyFiles\\"));
-            return Json("success");
+            return Json("success", JsonRequestBehavior.AllowGet);
         }
         /// <summary>
         /// non HTTPPost
         /// </summary>
-        /// <returns></returns>
-        public ActionResult RefreshCache()
+     
+        public JsonResult RefreshCache()
         {
             PictureCache.Refresh(Server.MapPath("..\\MyFiles\\"), true);
-            return Json("success");
+            return Json("success", JsonRequestBehavior.AllowGet);
         }
     }
 
