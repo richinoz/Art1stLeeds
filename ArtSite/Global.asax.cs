@@ -143,6 +143,11 @@ namespace ArtSite
             Logger.Info("start application", null);
         }
 
+        protected void Application_End()
+        {
+            Logger.Info("end application", null);
+        }
+
         void Application_Error(object sender, EventArgs e)
         {
             // Code that runs when an unhandled error occurs
