@@ -5,6 +5,19 @@
   -->
 
 <configuration>
+
+  <configSections>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net"/>
+
+    <sectionGroup name="elmah">
+      <section name="security" requirePermission="false" type="Elmah.SecuritySectionHandler, Elmah" />
+      <section name="errorLog" requirePermission="false" type="Elmah.ErrorLogSectionHandler, Elmah" />
+      <section name="errorMail" requirePermission="false" type="Elmah.ErrorMailSectionHandler, Elmah" />
+      <section name="errorFilter" requirePermission="false" type="Elmah.ErrorFilterSectionHandler, Elmah" />
+    </sectionGroup>
+    
+  </configSections>
+  
   <connectionStrings>
     <add name="ApplicationServices"
          connectionString="data source=.\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|aspnetdb.mdf;User Instance=true"
@@ -19,6 +32,7 @@
     <add key="webpages:Version" value="1.0.0.0"/>
     <add key="ClientValidationEnabled" value="true"/>
     <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+    <add key="Title" value="Art1st Leeds"/>
   </appSettings>
 
   <system.web>
@@ -75,9 +89,21 @@
 
     <customErrors mode="Off"/>
     <httpRuntime maxRequestLength="32768" />
+
+    <httpHandlers>
+      <add verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" />
+    </httpHandlers>
+
+    <httpModules>
+      <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah"/>
+    </httpModules>
     
   </system.web>
 
+  <elmah>
+    <errorLog type="Elmah.XmlFileErrorLog, Elmah" logPath="~/App_Data" />
+  </elmah>
+  
   <system.webServer>
     <validation validateIntegratedModeConfiguration="false"/>
     <modules runAllManagedModulesForAllRequests="true"/>
