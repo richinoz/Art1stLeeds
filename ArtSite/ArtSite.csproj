@@ -118,6 +118,7 @@
     <Compile Include="Gallerific.aspx.designer.cs">
       <DependentUpon>Gallerific.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ElmahInfoException.cs" />
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="HitCounter.cs" />
     <Compile Include="LavaLamp.aspx.cs">

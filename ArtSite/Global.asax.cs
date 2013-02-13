@@ -9,6 +9,7 @@ using System.Web.Routing;
 using ArtSite.Controllers;
 using ArtSite.DataAccess;
 using ArtSite.Filters;
+using ArtSite.Helpers;
 using ArtSite.Models;
 using MvcMiniProfiler;
 
@@ -144,28 +145,15 @@ namespace ArtSite
             const string message = "start application";
             Logger.Info(message, null);
 
-            LogInfoToElmah(message);
         }
 
         protected void Application_End()
         {
             const string message = "end application";
             Logger.Info(message, null);
-
-            LogInfoToElmah(message);
         }
 
-        private static void LogInfoToElmah(string message)
-        {
-            var title = System.Configuration.ConfigurationManager.AppSettings["Title"];
-
-            var errorLog = new Elmah.XmlFileErrorLog("~/App_Data") {ApplicationName = title};
-
-            var logException = new Exception(string.Format("{0}", message));
-            errorLog.Log(new Elmah.Error(logException));
-        }
-
-
+       
         void Application_Error(object sender, EventArgs e)
         {
             // Code that runs when an unhandled error occurs
