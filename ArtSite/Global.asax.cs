@@ -141,10 +141,18 @@ namespace ArtSite
 
             log4net.Config.XmlConfigurator.Configure();
 
-            const string startApp = "start application";
-            Logger.Info(startApp, null);
+            const string message = "start application";
+            Logger.Info(message, null);
 
-            LogInfoToElmah(startApp);
+            LogInfoToElmah(message);
+        }
+
+        protected void Application_End()
+        {
+            const string message = "end application";
+            Logger.Info(message, null);
+
+            LogInfoToElmah(message);
         }
 
         private static void LogInfoToElmah(string message)

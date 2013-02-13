@@ -109,3 +109,4 @@ UpgradeLog*.XML
 *.ReSharper
 
 /ArtSite/Art1stLeeds.zip
+obj
