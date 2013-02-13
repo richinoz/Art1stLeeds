@@ -43,6 +43,7 @@ namespace ArtSite
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("elmah.axd");
 
             var allUsers = UserDal.AllUsers;
 
@@ -140,8 +141,22 @@ namespace ArtSite
 
             log4net.Config.XmlConfigurator.Configure();
 
-            Logger.Info("start application", null);
+            const string startApp = "start application";
+            Logger.Info(startApp, null);
+
+            LogInfoToElmah(startApp);
         }
+
+        private static void LogInfoToElmah(string message)
+        {
+            var title = System.Configuration.ConfigurationManager.AppSettings["Title"];
+
+            var errorLog = new Elmah.XmlFileErrorLog("~/App_Data") {ApplicationName = title};
+
+            var logException = new Exception(string.Format("{0}", message));
+            errorLog.Log(new Elmah.Error(logException));
+        }
+
 
         void Application_Error(object sender, EventArgs e)
         {
