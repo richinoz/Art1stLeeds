@@ -111,3 +111,7 @@ UpgradeLog*.XML
 /ArtSite/Art1stLeeds.zip
 obj
 obj
+/ArtSite.Tests/obj/Debug
+/ArtSite.Tests/obj/Debug/ResolveAssemblyReference.cache
+/ArtSite.Tests/obj/Debug/ArtSite.Tests.dll
+/ArtSite.Tests/obj/Debug/ArtSite.Tests.pdb
