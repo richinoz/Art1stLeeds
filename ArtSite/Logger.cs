@@ -34,8 +34,8 @@ namespace ArtSite
         private static void LogInfoToElmah(string message)
         {
             var title = ConfigurationManager.AppSettings["Title"];
-
-            var path = HttpContext.Current.Server.MapPath("App_Data");
+          
+            var path = HttpContext.Current.Server.MapPath("~/App_Data");
 
             var errorLog = new Elmah.XmlFileErrorLog(path) { ApplicationName = title };
 

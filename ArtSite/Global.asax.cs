@@ -63,11 +63,11 @@ namespace ArtSite
              new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
 
                 routes.MapRoute(
-                 user.UserName +"theme", // Route name
+                 user.UserName + "theme", // Route name
                  string.Format("{0}/{{*theme}}", user.UserName), // URL with parameters
                  new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
 
-              
+
                 //this is temporary!
                 routes.MapRoute(
                   user.UserName + "ArtistThemes", // Route name
@@ -153,7 +153,7 @@ namespace ArtSite
             Logger.Info(message, null);
         }
 
-       
+
         void Application_Error(object sender, EventArgs e)
         {
             // Code that runs when an unhandled error occurs
@@ -208,10 +208,10 @@ namespace ArtSite
                     {
                         Title = System.Configuration.ConfigurationManager.AppSettings["Title"];
                     }
-                    catch 
+                    catch
                     {
                     }
-                    
+
                 }
 
                 return Title;
