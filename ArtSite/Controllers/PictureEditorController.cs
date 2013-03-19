@@ -17,193 +17,191 @@ namespace ArtSite.Controllers
     [Authorize]
     public class PictureEditorController : Controller
     {
-        private ArtGalleryDBContext _db;
-        private IPictureDal _pictureDal;
-        private IUserDal _userDal;
+        //private ArtGalleryDBContext _db;
+        //private IPictureDal _pictureDal;
+        //private IUserDal _userDal;
 
-        public PictureEditorController() : this(null, null) { }
+        //public PictureEditorController(IPictureDal pictureDal, IUserDal userDal)
+        //{
+        //    _db = new ArtGalleryDBContext();
 
-        public PictureEditorController(IPictureDal pictureDal, IUserDal userDal)
-        {
-            _db = new ArtGalleryDBContext();
+        //    if (pictureDal == null)
+        //        pictureDal = new PictureDal(_db);
 
-            if (pictureDal == null)
-                pictureDal = new PictureDal(_db);
+        //    if (userDal == null)
+        //        userDal = new UserDal(_db);
 
-            if (userDal == null)
-                userDal = new UserDal(_db);
+        //    _pictureDal = pictureDal;
+        //    _userDal = userDal;
 
-            _pictureDal = pictureDal;
-            _userDal = userDal;
+        //}
+        ////
+        //// GET: /PictureLoaderDB/
 
-        }
-        //
-        // GET: /PictureLoaderDB/
+        //public ActionResult Index(string name)
+        //{
+        //    if (name != null)
+        //    {
+        //        if (name == "blanksearch")
+        //            name = "";
+        //        ViewBag.SearchCriteria = name;
+        //        return View(GetImagesFromDb(name));
+        //    }
+        //    return View();
+        //}
 
-        public ActionResult Index(string name)
-        {
-            if (name != null)
-            {
-                if (name == "blanksearch")
-                    name = "";
-                ViewBag.SearchCriteria = name;
-                return View(GetImagesFromDb(name));
-            }
-            return View();
-        }
+        //public ActionResult Searching(string name)
+        //{
+        //    string tempname = (string)TempData["PictureDBSearch"];
+        //    if (name != null)
+        //        TempData["PictureDBSearch"] = name;
+        //    else
+        //        name = tempname;
 
-        public ActionResult Searching(string name)
-        {
-            string tempname = (string)TempData["PictureDBSearch"];
-            if (name != null)
-                TempData["PictureDBSearch"] = name;
-            else
-                name = tempname;
+        //    if (Request.IsAjaxRequest())
+        //        return PartialView(GetImagesFromDb(name));
 
-            if (Request.IsAjaxRequest())
-                return PartialView(GetImagesFromDb(name));
+        //    if (name == "")
+        //        name = "blanksearch";
 
-            if (name == "")
-                name = "blanksearch";
+        //    return RedirectToAction("Index", new { name });
 
-            return RedirectToAction("Index", new { name });
+        //}
+        ////
+        //// GET: /PictureLoaderDB/Details/5
 
-        }
-        //
-        // GET: /PictureLoaderDB/Details/5
+        //public ViewResult Details(int id)
+        //{
+        //    PictureItem pictureitem = _pictureDal.Enitities.Find(id);
+        //    return View(pictureitem);
+        //}
 
-        public ViewResult Details(int id)
-        {
-            PictureItem pictureitem = _pictureDal.Enitities.Find(id);
-            return View(pictureitem);
-        }
+        ////
+        //// GET: /PictureLoaderDB/Create
 
-        //
-        // GET: /PictureLoaderDB/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        public ActionResult Create()
-        {
-            return View();
-        }
+        ////
+        //// POST: /PictureLoaderDB/Create
 
-        //
-        // POST: /PictureLoaderDB/Create
+        //[HttpPost]
+        //public ActionResult Create(PictureItem pictureitem)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _pictureDal.Enitities.Add(pictureitem);
+        //        _pictureDal.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-        [HttpPost]
-        public ActionResult Create(PictureItem pictureitem)
-        {
-            if (ModelState.IsValid)
-            {
-                _pictureDal.Enitities.Add(pictureitem);
-                _pictureDal.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //    return View(pictureitem);
+        //}
 
-            return View(pictureitem);
-        }
+        ////
+        //// GET: /PictureLoaderDB/Edit/5
 
-        //
-        // GET: /PictureLoaderDB/Edit/5
+        //public ActionResult Edit(int id, string returnUrl)
+        //{
+        //    if (!Request.IsAuthenticated)
+        //    {
 
-        public ActionResult Edit(int id, string returnUrl)
-        {
-            if (!Request.IsAuthenticated)
-            {
+        //        RouteValueDictionary dictionary = null;
+        //        if (Request.Url != null)
+        //            dictionary = new RouteValueDictionary(new { returnUrl = Request.Url.PathAndQuery });
 
-                RouteValueDictionary dictionary = null;
-                if (Request.Url != null)
-                    dictionary = new RouteValueDictionary(new { returnUrl = Request.Url.PathAndQuery });
+        //        return RedirectToAction("LogOn", "Account", dictionary);
+        //    }
 
-                return RedirectToAction("LogOn", "Account", dictionary);
-            }
+        //    var pictureitem = _pictureDal.Enitities.Find(id);
 
-            var pictureitem = _pictureDal.Enitities.Find(id);
+        //    var editPictureViewModel = new EditPictureViewModel()
+        //                                                    {
+        //                                                        Picture = pictureitem,
+        //                                                        ReturnUrl = returnUrl
+        //                                                    };
+        //    return View(editPictureViewModel);
+        //}
 
-            var editPictureViewModel = new EditPictureViewModel()
-                                                            {
-                                                                Picture = pictureitem,
-                                                                ReturnUrl = returnUrl
-                                                            };
-            return View(editPictureViewModel);
-        }
+        ////
+        //// POST: /PictureLoaderDB/Edit/5
 
-        //
-        // POST: /PictureLoaderDB/Edit/5
+        //[HttpPost]
+        //public ActionResult Edit(EditPictureViewModel editPictureTtem)
+        //{
+        //    var pictureitem = editPictureTtem.Picture;
+        //    if (ModelState.IsValid)
+        //    {
+        //        var pic = pictureitem;
 
-        [HttpPost]
-        public ActionResult Edit(EditPictureViewModel editPictureTtem)
-        {
-            var pictureitem = editPictureTtem.Picture;
-            if (ModelState.IsValid)
-            {
-                var pic = pictureitem;
+        //        _pictureDal.Enitities.Attach(pic);
 
-                _pictureDal.Enitities.Attach(pic);
+        //        _pictureDal.Entry(pic).Property(x => x.Artist).IsModified = true;
+        //        _pictureDal.Entry(pic).Property(x => x.Title).IsModified = true;
+        //        _pictureDal.Entry(pic).Property(x => x.Price).IsModified = true;
+        //        _pictureDal.Entry(pic).Property(x => x.Media).IsModified = true;
+        //        _pictureDal.Entry(pic).Property(x => x.Size).IsModified = true;
+        //        _pictureDal.Entry(pic).Property(x => x.Theme).IsModified = true;
+        //        _pictureDal.Entry(pic).Property(x => x.DisplayOrder).IsModified = true;
 
-                _pictureDal.Entry(pic).Property(x => x.Artist).IsModified = true;
-                _pictureDal.Entry(pic).Property(x => x.Title).IsModified = true;
-                _pictureDal.Entry(pic).Property(x => x.Price).IsModified = true;
-                _pictureDal.Entry(pic).Property(x => x.Media).IsModified = true;
-                _pictureDal.Entry(pic).Property(x => x.Size).IsModified = true;
-                _pictureDal.Entry(pic).Property(x => x.Theme).IsModified = true;
-                _pictureDal.Entry(pic).Property(x => x.DisplayOrder).IsModified = true;
+        //        _pictureDal.SaveChanges();
 
-                _pictureDal.SaveChanges();
+        //        if (editPictureTtem.ReturnUrl != null)
+        //            return Redirect(editPictureTtem.ReturnUrl);
 
-                if (editPictureTtem.ReturnUrl != null)
-                    return Redirect(editPictureTtem.ReturnUrl);
-
-                return RedirectToAction("Searching");
-            }
-            return View(pictureitem);
-        }
+        //        return RedirectToAction("Searching");
+        //    }
+        //    return View(pictureitem);
+        //}
 
 
-        //
-        // GET: /PictureLoaderDB/Delete/5
+        ////
+        //// GET: /PictureLoaderDB/Delete/5
 
-        public ActionResult Delete(int id, string returnUrl)
-        {
-            PictureItem pictureitem = _pictureDal.Enitities.Find(id);
-            var editPictureViewModel = new EditPictureViewModel
-            {
-                Picture = pictureitem,
-                ReturnUrl = returnUrl
-            };
+        //public ActionResult Delete(int id, string returnUrl)
+        //{
+        //    PictureItem pictureitem = _pictureDal.Enitities.Find(id);
+        //    var editPictureViewModel = new EditPictureViewModel
+        //    {
+        //        Picture = pictureitem,
+        //        ReturnUrl = returnUrl
+        //    };
 
-            return View(editPictureViewModel);
-        }
+        //    return View(editPictureViewModel);
+        //}
 
 
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(EditPictureViewModel editPictureViewModel)
-        {
-            int id = editPictureViewModel.Picture.ID;
-            if (User.Identity.IsAuthenticated)
-            {
-                var hasPermission = Permissions.HasPermission(User.Identity.Name);
-                LogOnModel currentUser = Permissions.GetCurrentUser(_userDal, User);// UserDal.AllUsers.FirstOrDefault(x => x.UserName == User.Identity.Name) ?? _userDal.Enitities.FirstOrDefault(x => x.UserName == User.Identity.Name);
+        //[HttpPost, ActionName("Delete")]
+        //public ActionResult DeleteConfirmed(EditPictureViewModel editPictureViewModel)
+        //{
+        //    int id = editPictureViewModel.Picture.ID;
+        //    if (User.Identity.IsAuthenticated)
+        //    {
+        //        var hasPermission = Permissions.HasPermission(User.Identity.Name);
+        //        LogOnModel currentUser = Permissions.GetCurrentUser(_userDal, User);// UserDal.AllUsers.FirstOrDefault(x => x.UserName == User.Identity.Name) ?? _userDal.Enitities.FirstOrDefault(x => x.UserName == User.Identity.Name);
 
-                PictureItem pictureitem = _pictureDal.Enitities.Find(id);
+        //        PictureItem pictureitem = _pictureDal.Enitities.Find(id);
 
-                if (currentUser != null && pictureitem != null)
-                    hasPermission |= currentUser.UserName == pictureitem.Artist;
+        //        if (currentUser != null && pictureitem != null)
+        //            hasPermission |= currentUser.UserName == pictureitem.Artist;
 
-                if (hasPermission)
-                {
-                    _pictureDal.Enitities.Remove(pictureitem);
-                    _db.SaveChanges();
+        //        if (hasPermission)
+        //        {
+        //            _pictureDal.Enitities.Remove(pictureitem);
+        //            _db.SaveChanges();
 
-                    if (editPictureViewModel.ReturnUrl != null)
-                        return Redirect(editPictureViewModel.ReturnUrl);
+        //            if (editPictureViewModel.ReturnUrl != null)
+        //                return Redirect(editPictureViewModel.ReturnUrl);
 
-                    return RedirectToAction("Searching");
-                }
-            }
+        //            return RedirectToAction("Searching");
+        //        }
+        //    }
 
-            ModelState.AddModelError("", "You do not have permission to delete");
-            return View();
-        }
+        //    ModelState.AddModelError("", "You do not have permission to delete");
+        //    return View();
+        //}
 
         public static List<PictureItemNoBufferData> GetImagesFromDbMin(LogOnModel user)
         {
@@ -212,7 +210,7 @@ namespace ArtSite.Controllers
 
         public static List<PictureItemNoBufferData> GetImagesFromDbMin(LogOnModel user, string theme)
         {
-            using (var db = new ArtGalleryDBContext())
+            using (var db = (ArtGalleryDBContext)DependencyResolver.Current.GetService<DbContext>())
             {
                 var userId = user != null ? user.UserId : -1;
 
@@ -245,7 +243,7 @@ namespace ArtSite.Controllers
 
         public static List<PictureItem> GetImagesFromDb(string searchName)
         {
-            using (ArtGalleryDBContext db = new ArtGalleryDBContext())
+            using (var db = (ArtGalleryDBContext)DependencyResolver.Current.GetService<DbContext>())
             {
                 IEnumerable<PictureItemNoBufferData> query = null;
 
@@ -259,7 +257,7 @@ namespace ArtSite.Controllers
         //PictureItemNoBufferData
         public static List<LandingPageItemViewModel> GetImagesForLandingPage()
         {
-            using (var db = new ArtGalleryDBContext())
+            using (var db = (ArtGalleryDBContext)DependencyResolver.Current.GetService<DbContext>())
             {
                 var pictureDal = new PictureDal(db);
 
@@ -322,8 +320,8 @@ namespace ArtSite.Controllers
 
         }
         public static List<PictureItemNoBufferData> GetImagesFromDbMin(string searchName)
-        {
-            using (ArtGalleryDBContext db = new ArtGalleryDBContext())
+        {            
+            using (var db = (ArtGalleryDBContext)DependencyResolver.Current.GetService<DbContext>())
             {
                 IQueryable<PictureItemNoBufferData> query = null;
 
@@ -402,11 +400,5 @@ namespace ArtSite.Controllers
 
         }
 
-
-        protected override void Dispose(bool disposing)
-        {
-            _db.Dispose();
-            base.Dispose(disposing);
-        }
     }
 }
