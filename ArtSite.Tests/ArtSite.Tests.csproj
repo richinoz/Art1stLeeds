@@ -50,7 +50,7 @@
       <HintPath>..\packages\RhinoMocks.3.6\lib\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInjector">
-      <HintPath>..\packages\SimpleInjector.2.0.2\lib\net40-client\SimpleInjector.dll</HintPath>
+      <HintPath>..\packages\SimpleInjector.2.2.1\lib\net40-client\SimpleInjector.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInjector.Integration.Web">
       <HintPath>..\packages\SimpleInjector.Integration.Web.2.0.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
@@ -77,7 +77,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="Controllers\AccountControllerTest.cs" />
     <Compile Include="Controllers\PictureLoaderControllerTests.cs" />
     <Compile Include="EmailTests.cs" />
@@ -97,6 +96,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Start\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

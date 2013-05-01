@@ -78,8 +78,7 @@ publish
 # Publish Web Output
 *.Publish.xml
 
-# NuGet Packages Directory
-packages
+
 
 # Windows Azure Build Output
 csx
@@ -115,3 +114,4 @@ obj
 /ArtSite.Tests/obj/Debug/ResolveAssemblyReference.cache
 /ArtSite.Tests/obj/Debug/ArtSite.Tests.dll
 /ArtSite.Tests/obj/Debug/ArtSite.Tests.pdb
+/ArtSite/App_Data
