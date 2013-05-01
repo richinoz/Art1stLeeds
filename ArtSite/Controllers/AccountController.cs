@@ -13,12 +13,11 @@ namespace ArtSite.Controllers
 {
     public class AccountController : Controller
     {
-        private ArtGalleryDBContext _db = new ArtGalleryDBContext();
         private IUserDal _userDal;
 
-        public AccountController()
+        public AccountController(IUserDal userDal)
         {
-            _userDal = new UserDal(_db);
+            _userDal = userDal;
         }
         //
         // GET: /Account/LogOn
@@ -262,11 +261,7 @@ namespace ArtSite.Controllers
             return View();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            _db.Dispose();
-            base.Dispose(disposing);
-        }
+       
 
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)

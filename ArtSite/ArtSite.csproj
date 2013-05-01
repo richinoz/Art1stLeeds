@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Elmah">
+      <HintPath>References\Elmah.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.4.2.0.0\lib\net40\EntityFramework.dll</HintPath>
@@ -57,6 +60,15 @@
     </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\packages\RhinoMocks.3.6\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\packages\SimpleInjector.2.0.2\lib\net40-client\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.2.0.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.2.0.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -87,6 +99,7 @@
   <ItemGroup>
     <Compile Include="App_Start\EntityFrameworkProfilerBootstrapper.cs" />
     <Compile Include="App_Start\MiniProfiler.cs" />
+    <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountViewController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -115,6 +128,7 @@
     <Compile Include="Gallerific.aspx.designer.cs">
       <DependentUpon>Gallerific.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ElmahInfoException.cs" />
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="HitCounter.cs" />
     <Compile Include="LavaLamp.aspx.cs">
@@ -165,7 +179,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Start\EntityFrameworkProfilerBootstrapper.vb" />
     <Content Include="Content\colorpicker\css\colorpicker.css" />
     <Content Include="Content\colorpicker\css\layout.css" />
     <Content Include="Content\colorpicker\images\blank.gif" />

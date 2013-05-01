@@ -9,6 +9,7 @@ using System.Web.Routing;
 using ArtSite.Controllers;
 using ArtSite.DataAccess;
 using ArtSite.Filters;
+using ArtSite.Helpers;
 using ArtSite.Models;
 using MvcMiniProfiler;
 
@@ -43,6 +44,7 @@ namespace ArtSite
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("elmah.axd");
 
             var allUsers = UserDal.AllUsers;
 
@@ -61,11 +63,11 @@ namespace ArtSite
              new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
 
                 routes.MapRoute(
-                 user.UserName +"theme", // Route name
+                 user.UserName + "theme", // Route name
                  string.Format("{0}/{{*theme}}", user.UserName), // URL with parameters
                  new { controller = "Gallery", action = "ArtistGallery", userId = user.UserId });
 
-              
+
                 //this is temporary!
                 routes.MapRoute(
                   user.UserName + "ArtistThemes", // Route name
@@ -140,13 +142,17 @@ namespace ArtSite
 
             log4net.Config.XmlConfigurator.Configure();
 
-            Logger.Info("start application", null);
+            const string message = "start application";
+            Logger.Info(message, null);
+
         }
 
         protected void Application_End()
         {
-            Logger.Info("end application", null);
+            const string message = "end application";
+            Logger.Info(message, null);
         }
+
 
         void Application_Error(object sender, EventArgs e)
         {
@@ -202,10 +208,10 @@ namespace ArtSite
                     {
                         Title = System.Configuration.ConfigurationManager.AppSettings["Title"];
                     }
-                    catch 
+                    catch
                     {
                     }
-                    
+
                 }
 
                 return Title;

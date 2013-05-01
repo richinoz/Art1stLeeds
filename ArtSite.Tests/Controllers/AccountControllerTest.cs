@@ -14,7 +14,7 @@ namespace ArtSite.Tests.Controllers
         [TestMethod]
         public void TestMethod1()
         {            
-            AccountController accountController = new AccountController();
+            AccountController accountController = new AccountController(null);
 
             LogOnModel logOnModel = new LogOnModel(){Password = "bleakhouse", UserName = "ellie mcverry"};
             var ret =  accountController.LogOn(logOnModel, null);
