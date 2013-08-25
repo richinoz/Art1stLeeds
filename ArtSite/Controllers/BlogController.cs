@@ -8,6 +8,7 @@ using ArtSite.Models;
 
 namespace ArtSite.Controllers
 {
+    [Authorize]
     public class BlogController  : Controller
     {
         ArtGalleryDBContext db = new ArtGalleryDBContext();

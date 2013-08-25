@@ -21,7 +21,7 @@ namespace ArtSite
         {
             try
             {
-                HttpPostedFile hpf = context.Request.Files["file"];
+                HttpPostedFile hpf = context.Request.Files["file"];                
                // if (hpf.ContentLength > 0 && FileIsPicture(hpf))
                 if (hpf.ContentLength > 0)
                 {
@@ -38,8 +38,8 @@ namespace ArtSite
                         var buffer = new byte[hpf.InputStream.Length];
                         hpf.InputStream.Read(buffer, 0, buffer.Length);
                         fs.Write(buffer, 0, buffer.Length);
-                    } 
-
+                    }
+                   
                     //only do this part when chunk complete
                     if (chunk == totalChunks-1)
                     {
@@ -48,9 +48,17 @@ namespace ArtSite
 
                         using (ArtGalleryDBContext db = new ArtGalleryDBContext())
                         {
-                            var currentUser =  UserDal.AllUsers.FirstOrDefault(x => x.UserName == context.User.Identity.Name);
-
-                            PictureItem picture = new PictureItem
+                            var currentUser =  UserDal.AllUsers.FirstOrDefault(x => x.UserName.ToLower() == context.User.Identity.Name.ToLower());                            
+                            if (currentUser == null)
+                            {
+                                currentUser = new LogOnModel()
+                                {
+                                    UserId = 99999,
+                                    UserName = context.User.Identity.Name
+                                };
+                                Logger.Info("user could not be found for upload", null);
+                            }
+                            var picture = new PictureItem
                                                       {
                                                           ImageT = bufferFinal,
                                                           Created = DateTime.Now,
@@ -82,8 +90,7 @@ namespace ArtSite
             }
             catch (Exception ex)
             {
-                log4net.ILog logger = log4net.LogManager.GetLogger("Database");
-                logger.Error("In upload.ashx", ex);
+                Logger.Error("In upload.ashx", ex);               
             }
         }
 

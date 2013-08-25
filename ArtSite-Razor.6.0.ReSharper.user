@@ -2,7 +2,6 @@
   <RecentFiles>
     <RecentFiles>
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Global.asax.cs" caret="5111" fromTop="29" />
-      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistThemes.cshtml" caret="0" fromTop="0" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountController.cs" caret="6605" fromTop="0" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistGallery.cshtml" caret="585" fromTop="17" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:LandingPage.cshtml" caret="498" fromTop="13" />
@@ -12,6 +11,12 @@
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Index.cshtml" caret="761" fromTop="19" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Filters/f:MyFilter.cs" caret="356" fromTop="14" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="338" fromTop="12" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Gallery/f:ArtistThemes.cshtml" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:PictureEditorController.cs" caret="5956" fromTop="17" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:DownloadController.cs" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:UploaderController.cs" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/f:Upload.ashx.cs" caret="0" fromTop="0" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:BlogController.cs" caret="1836" fromTop="11" />
     </RecentFiles>
     <RecentEdits>
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:Home/f:About.cshtml" caret="231" fromTop="12" />
@@ -32,6 +37,7 @@
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Index.cshtml" caret="486" fromTop="22" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Views/d:AccountView/f:Index.cshtml" caret="761" fromTop="19" />
       <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:AccountViewController.cs" caret="338" fromTop="12" />
+      <File id="19745907-E5C6-423A-BACA-AE42592F72A7/d:Controllers/f:BlogController.cs" caret="204" fromTop="7" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>
